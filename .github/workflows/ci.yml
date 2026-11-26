@@ -1,0 +1,72 @@
+name: ci
+
+# When each suite runs (see README §5):
+#   push           -> unit + smoke            (fast gate, ~1 min after the stack is up)
+#   pull_request   -> unit + smoke + regression + e2e shards + traceability gate
+#   nightly        -> everything, including quarantined (flaky) tests
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: unit + smoke (+ regression on PR/nightly)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Start app + isolated test stack
+        run: docker compose --profile test up -d --build --wait frontend backend ws frontend-test backend-test ws-test
+      - name: Unit
+        run: docker compose run --rm tester unit
+      - name: Smoke
+        run: docker compose run --rm tester smoke
+      - name: Regression
+        if: github.event_name != 'push'
+        run: docker compose run --rm tester regression
+      - name: Pipeline gaps (every route / file / step guarded)
+        run: docker compose run --rm tester qa gaps
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs --tail=200 setup ws ws-test frontend-test backend-test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gate-reports
+          path: "*/tests/Support/output/"
+
+  e2e:
+    name: e2e shard ${{ matrix.shard }}/2
+    if: github.event_name != 'push'
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start app + test stack + selenium
+        run: docker compose --profile test up -d --build --wait frontend-test backend-test ws-test selenium
+      - name: Duration-balanced shards from qa/history.json
+        run: docker compose run --rm tester qa shards --suite=e2e --n=2
+      - name: E2E shard
+        env:
+          QA_INCLUDE_QUARANTINE: ${{ github.event_name == 'schedule' && '1' || '' }}
+        run: docker compose run --rm -e QA_INCLUDE_QUARANTINE tester e2e -g qashard_e2e_${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-shard-${{ matrix.shard }}
+          path: blackbox/tests/Support/output/

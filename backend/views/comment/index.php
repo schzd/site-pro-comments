@@ -40,7 +40,7 @@ $page = $provider->pagination->getPage();
     <nav class="cp-tabs" aria-label="Filter">
         <?php foreach (['all' => 'All', 'published' => 'Published', 'hidden' => 'Hidden', 'demo' => 'Demo'] as $key => $label): ?>
             <a href="<?= Url::to(['/comment/index', 'filter' => $key === 'all' ? null : $key]) ?>"
-               class="cp-tab <?= $filter === $key ? 'is-active' : '' ?>"><?= $label ?> <span class="mono"><?= $counts[$key] ?></span></a>
+               class="cp-tab <?= $filter === $key ? 'is-active' : '' ?>"><?= $label ?> <span class="mono" data-count="<?= $key ?>"><?= $counts[$key] ?></span></a>
         <?php endforeach ?>
     </nav>
 

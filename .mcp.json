@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "echo-qa": {
+      "type": "stdio",
+      "command": "docker",
+      "args": ["compose", "--profile", "test", "run", "--rm", "-T", "--no-deps", "mcp"]
+    }
+  }
+}

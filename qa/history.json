@@ -1,13 +1,14 @@
 {
     "tests": {
         "backend\\tests\\Regression\\AdminCest::adminLogsInAndSeesTheLiveList": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.403,
-            "trail": "PP",
+            "avg_time": 0.423,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -15,13 +16,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::adminSocketTokenCarriesAdminScopeAndUserId": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.366,
-            "trail": "PP",
+            "avg_time": 0.389,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -29,13 +31,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::adminViewEscapesMarkup": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.384,
-            "trail": "PP",
+            "avg_time": 0.408,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -43,13 +46,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::deleteIsPostOnlyCsrfProtectedAnd404ForUnknownIds": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.476,
-            "trail": "PP",
+            "avg_time": 0.474,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -57,13 +61,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::deleteRemovesRowAndPublishesDeletion": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.385,
-            "trail": "PP",
+            "avg_time": 0.389,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -71,13 +76,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::editSavesAndPublishesUpdate": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.458,
-            "trail": "PP",
+            "avg_time": 0.496,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -85,13 +91,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::filtersNarrowTheList": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.42,
-            "trail": "PP",
+            "avg_time": 0.442,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -99,13 +106,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::guestsAreSentToLogin": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.722,
-            "trail": "PP",
+            "avg_time": 0.725,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -113,13 +121,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::hidingAPublishedCommentIsPublishedWithHiddenStatus": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.414,
-            "trail": "PP",
+            "avg_time": 0.43,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -127,13 +136,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::invalidEditShowsErrorsAndPublishesNothing": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.394,
-            "trail": "PP",
+            "avg_time": 0.403,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -141,13 +151,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::listIsNewestFirstAndIncludesHiddenAndDemoRows": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.379,
-            "trail": "PP",
+            "avg_time": 0.376,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -155,13 +166,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::logoutIsPostOnly": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
             "avg_time": 0.356,
-            "trail": "PP",
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -169,13 +181,14 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::wrongPasswordIsRejected": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.49,
-            "trail": "PP",
+            "avg_time": 0.518,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -183,13 +196,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\DemoModeCest::demoPostsRealCommentsAndResetCleansUp": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 9.989,
-            "trail": "PP",
+            "avg_time": 10.539,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/DemoModeCest.php",
@@ -197,13 +211,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\LiveCommentFlowCest::commentTravelsFromFormToAdminListLive": {
-            "runs": 2,
+            "runs": 3,
             "fails": 1,
-            "avg_time": 2.289,
-            "trail": "FP",
+            "avg_time": 3.422,
+            "trail": "FPP",
             "revs": {
                 "fe624e4+c1bf6e": "F",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/LiveCommentFlowCest.php",
@@ -212,13 +227,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 1.703,
-            "trail": "PP",
+            "avg_time": 1.869,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/LiveCommentFlowCest.php",
@@ -226,13 +242,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::likeIsOptimisticAndPersists": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 2.679,
-            "trail": "PP",
+            "avg_time": 2.959,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -240,13 +257,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 1.424,
-            "trail": "PP",
+            "avg_time": 1.496,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -254,13 +272,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::otherVisitorsSeeNewPostsLive": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 2.202,
-            "trail": "PP",
+            "avg_time": 2.301,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -268,13 +287,14 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::scrolledReaderGetsNewPostsPill": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 2.313,
-            "trail": "PP",
+            "avg_time": 2.456,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -282,13 +302,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminListShowsTheComment": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 2.065,
-            "trail": "PP",
+            "avg_time": 1.978,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -296,13 +317,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminLoginPageIsUp": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.696,
-            "trail": "PP",
+            "avg_time": 0.659,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -310,13 +332,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminSocketReceivesTheNewCommentLive": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 1.738,
-            "trail": "PP",
+            "avg_time": 1.702,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -324,13 +347,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::demoPageIsUp": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.14,
-            "trail": "PP",
+            "avg_time": 0.281,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -338,13 +362,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postIsAcceptedAndReachesTheRelay": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.389,
-            "trail": "PP",
+            "avg_time": 0.381,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -352,13 +377,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postWithoutCsrfIsRefused": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.552,
-            "trail": "PP",
+            "avg_time": 0.436,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -366,13 +392,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postedCommentIsInThePublicFeed": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.424,
-            "trail": "PP",
+            "avg_time": 0.415,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -380,13 +407,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayClosesTokenlessSocketWith4401": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
             "avg_time": 0.001,
-            "trail": "PP",
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -394,13 +422,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayGreetsPublicSocket": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.099,
-            "trail": "PP",
+            "avg_time": 0.092,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -408,13 +437,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayRejectsSocketsWithoutValidToken": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.008,
-            "trail": "PP",
+            "avg_time": 0.007,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -422,13 +452,14 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::wallIsUpAndOffersTheComposer": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 1.322,
-            "trail": "PP",
+            "avg_time": 1.308,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -436,13 +467,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBlankVariableCountsAsMissing": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -450,13 +482,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBoolParsesOnlyExplicitValues": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.038,
-            "trail": "PPP",
+            "avg_time": 0.037,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -464,13 +497,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBoolRejectsAmbiguousValue": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -478,13 +512,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testIntRejectsNonNumeric": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -492,13 +527,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testMissingVariableThrowsAndNamesIt": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.029,
-            "trail": "PPP",
+            "avg_time": 0.031,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -506,13 +542,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testReturnsSetValue": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.241,
-            "trail": "PPP",
+            "avg_time": 0.239,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -520,13 +557,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testAvatarIsDeterministicAndSeedSensitive": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.024,
-            "trail": "PPP",
+            "avg_time": 0.023,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -534,13 +572,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testAvatarIsSelfContainedSvg": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.022,
-            "trail": "PPP",
+            "avg_time": 0.021,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -548,13 +587,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testGuestNameFormat": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.008,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -562,13 +602,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testHandleFromName": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.063,
-            "trail": "PPP",
+            "avg_time": 0.045,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -576,13 +617,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testHandleIsIdempotentSoItCanSeedAvatars": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.007,
-            "trail": "PPP",
+            "avg_time": 0.005,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -590,13 +632,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testDemoScope": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.022,
-            "trail": "PPP",
+            "avg_time": 0.02,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -604,13 +647,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testKeysetCursorContinuesExactlyAfterTheLastRow": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.029,
-            "trail": "PPP",
+            "avg_time": 0.028,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -618,13 +662,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testPublishedFeedIsNewestFirstAndExcludesHidden": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.076,
-            "trail": "PPP",
+            "avg_time": 0.073,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -632,13 +677,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testSameSecondCommentsAreOrderedByIdDescending": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -646,13 +692,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testAdminCanChangeStatusButOnlyToKnownValues": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -660,13 +707,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testHtmlIsStoredVerbatimAndEscapedOnlyOnOutput": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -674,13 +722,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testInvalidInputIsRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.026,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -688,13 +737,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testLengthIsCountedInCharactersNotBytes": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -702,13 +752,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testNormalisationTrimsAndCollapses": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -716,13 +767,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.021,
-            "trail": "PPP",
+            "avg_time": 0.019,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -730,13 +782,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testValidCommentPasses": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.045,
-            "trail": "PPP",
+            "avg_time": 0.047,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -744,13 +797,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testVisitorCannotMassAssignPrivilegedFields": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.01,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -758,13 +812,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginCorrect": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.326,
-            "trail": "PPP",
+            "avg_time": 0.322,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -772,13 +827,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginNoUser": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.077,
-            "trail": "PPP",
+            "avg_time": 0.068,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -786,13 +842,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginWrongPassword": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.302,
-            "trail": "PPP",
+            "avg_time": 0.299,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -800,13 +857,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Property\\InputInvariantsTest::testCorpusReplay": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.008,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Property/InputInvariantsTest.php",
@@ -814,13 +872,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Property\\InputInvariantsTest::testGeneratedInputs": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.081,
-            "trail": "PPP",
+            "avg_time": 0.079,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Property/InputInvariantsTest.php",
@@ -828,13 +887,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testDecodeRejectsForeignOrBrokenMessages": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -842,13 +902,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testEncodedFormIsStable": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -856,13 +917,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testRoundTrip": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.004,
-            "trail": "PPP",
+            "avg_time": 0.003,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -870,13 +932,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testTraceIdsAreUnique": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -884,13 +947,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testPublishesEnvelopeOnConfiguredChannel": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.012,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -898,13 +962,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testRedisOutageReturnsFailedResultInsteadOfThrowing": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -912,13 +977,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testZeroSubscribersIsDeliveredButObservable": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -926,13 +992,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testAdminReceivesFullPayloadWithRelayMetadata": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -940,13 +1007,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testFanOutCountsEverySocketAndSkipsClosedOnes": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.001,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -954,13 +1022,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testGreetsAuthorisedSocketWithScope": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -968,13 +1037,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testHiddenCommentsAreInvisibleToPublicAndHidingIsAnnouncedAsDeletion": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -982,13 +1052,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testMalformedRedisMessageIsDroppedAndLogged": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -996,13 +1067,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPingIsAnsweredOnlyForAuthorisedSockets": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1010,13 +1082,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPublicSocketNeverSeesPrivateFields": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1024,13 +1097,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPurgeReachesPublicSocketsWithIdsOnly": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1038,13 +1112,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testRejectsSocketWithNoTokenParameter": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1052,13 +1127,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testRejectsSocketWithoutValidTokenUsingCloseCode4401": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.089,
-            "trail": "PPP",
+            "avg_time": 0.084,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1066,13 +1142,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testExpiredTokenIsRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1080,13 +1157,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1094,13 +1172,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testMalformedTokensAreRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.002,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1108,13 +1187,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1122,13 +1202,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testRefusesUnknownScope": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1136,13 +1217,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1150,13 +1232,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1164,13 +1247,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1178,13 +1262,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1192,13 +1277,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testCreatePersistsThenPublishesOnce": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.027,
-            "trail": "PPP",
+            "avg_time": 0.026,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1206,13 +1292,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testDeletePublishesIdAfterRemoval": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.005,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1220,13 +1307,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1234,13 +1322,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikeCounterNeverGoesNegative": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.006,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1248,13 +1337,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikeTogglesAndIsUniquePerVoter": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.018,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1262,13 +1352,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikesAreRateLimitedPerIp": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.014,
-            "trail": "PPP",
+            "avg_time": 0.013,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1276,13 +1367,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testPurgeRemovesOnlyDemoComments": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.013,
-            "trail": "PPP",
+            "avg_time": 0.012,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1290,13 +1382,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testRelayOutageNeverLosesTheComment": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.006,
-            "trail": "PPP",
+            "avg_time": 0.005,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1304,13 +1397,14 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testUpdatePublishesTheNewState": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.005,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "PP"
+                "fe624e4+1cff21": "PP",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1318,13 +1412,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoFlagMarksCommentsAsDemo": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.232,
-            "trail": "PP",
+            "avg_time": 0.225,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1332,13 +1427,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoPageRendersPipelineAndControls": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.863,
-            "trail": "PP",
+            "avg_time": 0.801,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1346,13 +1442,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetPurgesOnlyDemoCommentsAndAnnouncesIt": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.053,
-            "trail": "PP",
+            "avg_time": 0.05,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1360,13 +1457,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetRequiresPost": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.057,
-            "trail": "PP",
+            "avg_time": 0.053,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1374,13 +1472,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::ajaxPostPersistsAndPublishesOnce": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.075,
-            "trail": "PP",
+            "avg_time": 0.089,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1388,13 +1487,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::avatarsAreDeterministicAndCacheable": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.033,
-            "trail": "PP",
+            "avg_time": 0.031,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1402,13 +1502,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::blankNameGetsAStableGuestHandle": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.128,
-            "trail": "PP",
+            "avg_time": 0.218,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1416,13 +1517,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::feedIsNewestFirstWithIdTieBreakAndHidesHidden": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.048,
-            "trail": "PP",
+            "avg_time": 0.047,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1430,13 +1532,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::hiddenCommentsCannotBeLiked": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.05,
-            "trail": "PP",
+            "avg_time": 0.052,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1444,13 +1547,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::invalidPostIsRejectedWith422AndNothingHappens": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.048,
-            "trail": "PP",
+            "avg_time": 0.059,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1458,13 +1562,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::likeTogglesPersistsAndPublishes": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.148,
-            "trail": "PP",
+            "avg_time": 0.15,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1472,13 +1577,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::loadMoreNeverDuplicatesWhileNewCommentsArrive": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.575,
-            "trail": "PP",
+            "avg_time": 0.562,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1486,13 +1592,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::malformedCursorIs400": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.009,
-            "trail": "PP",
+            "avg_time": 0.016,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1500,13 +1607,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::markupInCommentsIsRenderedAsText": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.101,
-            "trail": "PP",
+            "avg_time": 0.106,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1514,13 +1622,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::noJavascriptFallbackPostsAndRedirects": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.195,
-            "trail": "PP",
+            "avg_time": 0.185,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1528,13 +1637,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::privilegedFieldsCannotBeInjected": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.059,
-            "trail": "PP",
+            "avg_time": 0.061,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1542,13 +1652,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::publicSocketTokenHasPublicScopeOnly": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
             "avg_time": 0.014,
-            "trail": "PP",
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1556,13 +1667,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::relayOutageIsReportedButCommentIsKept": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.058,
-            "trail": "PP",
+            "avg_time": 0.074,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1570,13 +1682,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::requestWithoutCsrfTokenIsRefused": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.017,
-            "trail": "PP",
+            "avg_time": 0.016,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1584,13 +1697,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::wallRendersComposerWithoutLogin": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.063,
-            "trail": "PP",
+            "avg_time": 0.056,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1598,13 +1712,14 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::wrongVerbsAreRejected": {
-            "runs": 2,
+            "runs": 3,
             "fails": 0,
-            "avg_time": 0.022,
-            "trail": "PP",
+            "avg_time": 0.021,
+            "trail": "PPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
-                "fe624e4+1cff21": "P"
+                "fe624e4+1cff21": "P",
+                "259a04c+c8d8bc": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1612,5 +1727,5 @@
             "flaky": false
         }
     },
-    "updated_at": "2026-11-26T13:20:50+00:00"
+    "updated_at": "2026-11-26T13:32:06+00:00"
 }

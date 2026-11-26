@@ -17,13 +17,13 @@ $status = $tpl ? 'published' : $data['status_label'];
 ?>
 <tr class="cp-row status-<?= Html::encode($status) ?>" data-comment-id="<?= $id ?>">
     <td class="mono cp-id" data-slot="id"><?= $tpl ? '' : '#' . $id ?></td>
-    <td class="cp-author">
+    <td><div class="cp-author">
         <img class="cp-avatar" data-slot="avatar" alt="" width="28" height="28" src="<?= $tpl ? '' : Html::encode($data['avatar_url']) ?>">
         <div>
             <div class="cp-name" data-slot="name"><?= $tpl ? '' : Html::encode($data['author_name']) ?></div>
             <div class="cp-handle mono" data-slot="handle"><?= $tpl ? '' : '@' . Html::encode($data['handle']) ?></div>
         </div>
-    </td>
+    </div></td>
     <td class="cp-body" data-slot="body"><?= $tpl ? '' : Html::encode($data['body']) ?></td>
     <td class="cp-status">
         <span class="pill <?= $status === 'published' ? 'pill-lime' : 'pill-amber' ?>" data-slot="status"><?= Html::encode($status) ?></span>

@@ -16,7 +16,7 @@ $this->title = 'Echo — live pipeline demo';
 $nodes = [
     // id, x, y, title, subtitle
     ['visitor', 20, 82, 'VISITOR', 'browser · fetch()'],
-    ['frontend', 215, 82, 'FRONT-END', 'Yii2 · POST /comments'],
+    ['frontend', 215, 82, 'FRONT-END', 'Yii2 · /comments'],
     ['mysql', 430, 18, 'MYSQL', 'INSERT comment'],
     ['redis', 430, 146, 'REDIS', 'PUBLISH pub/sub'],
     ['ws', 645, 146, 'WS RELAY', 'Ratchet · ReactPHP'],

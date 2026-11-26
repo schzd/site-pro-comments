@@ -33,8 +33,9 @@
 
   const row = (id) => rows.querySelector('tr[data-comment-id="' + id + '"]');
   const count = (key, d) => {
-    const el = panel.querySelector('[data-count="' + key + '"]');
-    if (el) el.textContent = Math.max(0, Number(el.textContent) + d);
+    panel.querySelectorAll('[data-count="' + key + '"]').forEach((el) => {
+      el.textContent = Math.max(0, Number(el.textContent) + d);
+    });
   };
 
   function matchesFilter(c) {
