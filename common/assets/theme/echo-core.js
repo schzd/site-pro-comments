@@ -67,6 +67,15 @@
   };
 
   /**
+   * WS_PUBLIC_URL may be absolute (ws://host:port) or a same-origin path
+   * ("/ws"), which follows the page's own host and scheme (https → wss).
+   */
+  Echo.socketUrl = function (url) {
+    if (url.charAt(0) !== '/') return url;
+    return (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + url;
+  };
+
+  /**
    * Authenticated WebSocket with reconnect.
    *  tokenUrl  — same-origin endpoint returning {url, token}
    *  onFrame   — called with each parsed frame (system.* frames included)
@@ -102,7 +111,7 @@
         return this.retry();
       }
 
-      const ws = new WebSocket(grant.url + '/?token=' + encodeURIComponent(grant.token));
+      const ws = new WebSocket(Echo.socketUrl(grant.url) + '/?token=' + encodeURIComponent(grant.token));
       this.ws = ws;
       ws.addEventListener('message', (ev) => {
         let frame;

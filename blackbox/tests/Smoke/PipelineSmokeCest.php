@@ -77,6 +77,23 @@ final class PipelineSmokeCest
         $ws->close();
     }
 
+    /**
+     * Browsers never hit the relay port directly: each app tunnels /ws/ to it
+     * on its own origin (works behind HTTPS / Codespaces port forwarding).
+     *
+     * @group step-S6
+     */
+    public function relayIsReachableSameOriginThroughBothApps(SmokeTester $I): void
+    {
+        $public = $I->openSocketThroughApp($I->frontendUrl(), $I->publicSocketToken());
+        $I->assertSame('public', $public->receiveJson()['data']['scope'] ?? null);
+        $public->close();
+
+        $admin = $I->openSocketThroughApp($I->backendUrl(), $I->adminSocketToken());
+        $I->assertSame('admin', $admin->receiveJson()['data']['scope'] ?? null);
+        $admin->close();
+    }
+
     /** @group step-S7 */
     public function adminLoginPageIsUp(SmokeTester $I): void
     {

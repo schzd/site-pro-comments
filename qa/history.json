@@ -1,14 +1,15 @@
 {
     "tests": {
         "backend\\tests\\Regression\\AdminCest::adminLogsInAndSeesTheLiveList": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.423,
-            "trail": "PPP",
+            "avg_time": 0.416,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -16,14 +17,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::adminSocketTokenCarriesAdminScopeAndUserId": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.389,
-            "trail": "PPP",
+            "avg_time": 0.384,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -31,14 +33,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::adminViewEscapesMarkup": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.408,
-            "trail": "PPP",
+            "avg_time": 0.418,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -46,14 +49,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::deleteIsPostOnlyCsrfProtectedAnd404ForUnknownIds": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.474,
-            "trail": "PPP",
+            "avg_time": 0.473,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -61,14 +65,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::deleteRemovesRowAndPublishesDeletion": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.389,
-            "trail": "PPP",
+            "avg_time": 0.386,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -76,14 +81,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::editSavesAndPublishesUpdate": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.496,
-            "trail": "PPP",
+            "avg_time": 0.487,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -91,14 +97,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::filtersNarrowTheList": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.442,
-            "trail": "PPP",
+            "avg_time": 0.438,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -106,14 +113,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::guestsAreSentToLogin": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.725,
-            "trail": "PPP",
+            "avg_time": 0.994,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -121,14 +129,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::hidingAPublishedCommentIsPublishedWithHiddenStatus": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.43,
-            "trail": "PPP",
+            "avg_time": 0.462,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -136,14 +145,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::invalidEditShowsErrorsAndPublishesNothing": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.403,
-            "trail": "PPP",
+            "avg_time": 0.41,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -151,14 +161,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::listIsNewestFirstAndIncludesHiddenAndDemoRows": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.376,
-            "trail": "PPP",
+            "avg_time": 0.372,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -166,14 +177,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::logoutIsPostOnly": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.356,
-            "trail": "PPP",
+            "avg_time": 0.355,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -181,14 +193,15 @@
             "flaky": false
         },
         "backend\\tests\\Regression\\AdminCest::wrongPasswordIsRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.518,
-            "trail": "PPP",
+            "avg_time": 0.507,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "backend/tests/Regression/AdminCest.php",
@@ -196,14 +209,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\DemoModeCest::demoPostsRealCommentsAndResetCleansUp": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 10.539,
-            "trail": "PPP",
+            "avg_time": 11.78,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/DemoModeCest.php",
@@ -211,14 +225,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\LiveCommentFlowCest::commentTravelsFromFormToAdminListLive": {
-            "runs": 3,
+            "runs": 4,
             "fails": 1,
-            "avg_time": 3.422,
-            "trail": "FPP",
+            "avg_time": 5.484,
+            "trail": "FPPP",
             "revs": {
                 "fe624e4+c1bf6e": "F",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/LiveCommentFlowCest.php",
@@ -227,14 +242,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 1.869,
-            "trail": "PPP",
+            "avg_time": 2.269,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/LiveCommentFlowCest.php",
@@ -242,14 +258,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::likeIsOptimisticAndPersists": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 2.959,
-            "trail": "PPP",
+            "avg_time": 2.906,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -257,14 +274,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 1.496,
-            "trail": "PPP",
+            "avg_time": 1.695,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -272,14 +290,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::otherVisitorsSeeNewPostsLive": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 2.301,
-            "trail": "PPP",
+            "avg_time": 2.477,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -287,14 +306,15 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\PublicWallLiveCest::scrolledReaderGetsNewPostsPill": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 2.456,
-            "trail": "PPP",
+            "avg_time": 2.423,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/PublicWallLiveCest.php",
@@ -302,14 +322,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminListShowsTheComment": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 1.978,
-            "trail": "PPP",
+            "avg_time": 1.91,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -317,14 +338,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminLoginPageIsUp": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.659,
-            "trail": "PPP",
+            "avg_time": 0.494,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -332,14 +354,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::adminSocketReceivesTheNewCommentLive": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 1.702,
-            "trail": "PPP",
+            "avg_time": 1.518,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -347,14 +370,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::demoPageIsUp": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.281,
-            "trail": "PPP",
+            "avg_time": 0.242,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -362,14 +386,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postIsAcceptedAndReachesTheRelay": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.381,
-            "trail": "PPP",
+            "avg_time": 0.414,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -377,14 +402,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postWithoutCsrfIsRefused": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.436,
-            "trail": "PPP",
+            "avg_time": 0.553,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -392,14 +418,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::postedCommentIsInThePublicFeed": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.415,
-            "trail": "PPP",
+            "avg_time": 0.417,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -407,14 +434,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayClosesTokenlessSocketWith4401": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.001,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -422,14 +450,28 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayGreetsPublicSocket": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.092,
-            "trail": "PPP",
+            "avg_time": 0.091,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
+            },
+            "suite": "smoke",
+            "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
+            "last": "pass",
+            "flaky": false
+        },
+        "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayIsReachableSameOriginThroughBothApps": {
+            "runs": 1,
+            "fails": 0,
+            "avg_time": 1.84,
+            "trail": "P",
+            "revs": {
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -437,14 +479,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::relayRejectsSocketsWithoutValidToken": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.007,
-            "trail": "PPP",
+            "avg_time": 0.046,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -452,14 +495,15 @@
             "flaky": false
         },
         "blackbox\\tests\\Smoke\\PipelineSmokeCest::wallIsUpAndOffersTheComposer": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 1.308,
-            "trail": "PPP",
+            "avg_time": 1.616,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "smoke",
             "file": "blackbox/tests/Smoke/PipelineSmokeCest.php",
@@ -467,14 +511,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBlankVariableCountsAsMissing": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -482,14 +527,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBoolParsesOnlyExplicitValues": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.037,
-            "trail": "PPPP",
+            "avg_time": 0.039,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -497,14 +543,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testBoolRejectsAmbiguousValue": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -512,14 +559,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testIntRejectsNonNumeric": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -527,14 +575,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testMissingVariableThrowsAndNamesIt": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.031,
-            "trail": "PPPP",
+            "avg_time": 0.042,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -542,14 +591,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\EnvTest::testReturnsSetValue": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.239,
-            "trail": "PPPP",
+            "avg_time": 0.25,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/EnvTest.php",
@@ -557,14 +607,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testAvatarIsDeterministicAndSeedSensitive": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.023,
-            "trail": "PPPP",
+            "avg_time": 0.031,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -572,14 +623,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testAvatarIsSelfContainedSvg": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.021,
-            "trail": "PPPP",
+            "avg_time": 0.023,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -587,14 +639,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testGuestNameFormat": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.008,
-            "trail": "PPPP",
+            "avg_time": 0.013,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -602,14 +655,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testHandleFromName": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.045,
-            "trail": "PPPP",
+            "avg_time": 0.032,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -617,14 +671,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Helpers\\HandleAvatarTest::testHandleIsIdempotentSoItCanSeedAvatars": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.005,
-            "trail": "PPPP",
+            "avg_time": 0.004,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Helpers/HandleAvatarTest.php",
@@ -632,14 +687,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testDemoScope": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.02,
-            "trail": "PPPP",
+            "avg_time": 0.021,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -647,14 +703,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testKeysetCursorContinuesExactlyAfterTheLastRow": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.028,
-            "trail": "PPPP",
+            "avg_time": 0.069,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -662,14 +719,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testPublishedFeedIsNewestFirstAndExcludesHidden": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.073,
-            "trail": "PPPP",
+            "avg_time": 0.101,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -677,14 +735,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentQueryTest::testSameSecondCommentsAreOrderedByIdDescending": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentQueryTest.php",
@@ -692,14 +751,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testAdminCanChangeStatusButOnlyToKnownValues": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -707,14 +767,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testHtmlIsStoredVerbatimAndEscapedOnlyOnOutput": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.003,
-            "trail": "PPPP",
+            "avg_time": 0.004,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -722,14 +783,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testInvalidInputIsRejected": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.026,
-            "trail": "PPPP",
+            "avg_time": 0.034,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -737,14 +799,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testLengthIsCountedInCharactersNotBytes": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.003,
-            "trail": "PPPP",
+            "avg_time": 0.004,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -752,14 +815,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testNormalisationTrimsAndCollapses": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -767,14 +831,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.019,
-            "trail": "PPPP",
+            "avg_time": 0.02,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -782,14 +847,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testValidCommentPasses": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.047,
-            "trail": "PPPP",
+            "avg_time": 0.082,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -797,14 +863,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\CommentValidationTest::testVisitorCannotMassAssignPrivilegedFields": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.01,
-            "trail": "PPPP",
+            "avg_time": 0.013,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/CommentValidationTest.php",
@@ -812,14 +879,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginCorrect": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.322,
-            "trail": "PPPP",
+            "avg_time": 0.349,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -827,14 +895,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginNoUser": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.068,
-            "trail": "PPPP",
+            "avg_time": 0.121,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -842,14 +911,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Models\\LoginFormTest::testLoginWrongPassword": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.299,
-            "trail": "PPPP",
+            "avg_time": 0.314,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Models/LoginFormTest.php",
@@ -857,14 +927,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Property\\InputInvariantsTest::testCorpusReplay": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.008,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Property/InputInvariantsTest.php",
@@ -872,14 +943,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Property\\InputInvariantsTest::testGeneratedInputs": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.079,
-            "trail": "PPPP",
+            "avg_time": 0.093,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Property/InputInvariantsTest.php",
@@ -887,14 +959,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testDecodeRejectsForeignOrBrokenMessages": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.003,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -902,14 +975,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testEncodedFormIsStable": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -917,14 +991,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testRoundTrip": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.003,
-            "trail": "PPPP",
+            "avg_time": 0.002,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -932,14 +1007,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\EnvelopeTest::testTraceIdsAreUnique": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/EnvelopeTest.php",
@@ -947,14 +1023,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testPublishesEnvelopeOnConfiguredChannel": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.012,
-            "trail": "PPPP",
+            "avg_time": 0.021,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -962,14 +1039,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testRedisOutageReturnsFailedResultInsteadOfThrowing": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.004,
-            "trail": "PPPP",
+            "avg_time": 0.013,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -977,14 +1055,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RedisCommentEventPublisherTest::testZeroSubscribersIsDeliveredButObservable": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RedisCommentEventPublisherTest.php",
@@ -992,14 +1071,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testAdminReceivesFullPayloadWithRelayMetadata": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1007,14 +1087,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testFanOutCountsEverySocketAndSkipsClosedOnes": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.001,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1022,14 +1103,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testGreetsAuthorisedSocketWithScope": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1037,14 +1119,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testHiddenCommentsAreInvisibleToPublicAndHidingIsAnnouncedAsDeletion": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1052,14 +1135,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testMalformedRedisMessageIsDroppedAndLogged": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1067,14 +1151,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPingIsAnsweredOnlyForAuthorisedSockets": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1082,14 +1167,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPublicSocketNeverSeesPrivateFields": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1097,14 +1183,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testPurgeReachesPublicSocketsWithIdsOnly": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1112,14 +1199,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testRejectsSocketWithNoTokenParameter": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1127,14 +1215,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\RelayHubTest::testRejectsSocketWithoutValidTokenUsingCloseCode4401": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.084,
-            "trail": "PPPP",
+            "avg_time": 0.09,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/RelayHubTest.php",
@@ -1142,14 +1231,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testExpiredTokenIsRejected": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1157,14 +1247,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0,
-            "trail": "PPPP",
+            "avg_time": 0.001,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1172,14 +1263,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testMalformedTokensAreRejected": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.002,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1187,14 +1279,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1202,14 +1295,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testRefusesUnknownScope": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1217,14 +1311,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0,
-            "trail": "PPPP",
+            "avg_time": 0.001,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1232,14 +1327,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1247,14 +1343,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Realtime\\SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Realtime/SocketTokenServiceTest.php",
@@ -1262,14 +1359,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1277,14 +1375,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testCreatePersistsThenPublishesOnce": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.026,
-            "trail": "PPPP",
+            "avg_time": 0.039,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1292,14 +1391,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testDeletePublishesIdAfterRemoval": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.005,
-            "trail": "PPPP",
+            "avg_time": 0.007,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1307,14 +1407,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.004,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1322,14 +1423,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikeCounterNeverGoesNegative": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.006,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1337,14 +1439,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikeTogglesAndIsUniquePerVoter": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.018,
-            "trail": "PPPP",
+            "avg_time": 0.021,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1352,14 +1455,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testLikesAreRateLimitedPerIp": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.013,
-            "trail": "PPPP",
+            "avg_time": 0.016,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1367,14 +1471,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testPurgeRemovesOnlyDemoComments": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.012,
-            "trail": "PPPP",
+            "avg_time": 0.027,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1382,14 +1487,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testRelayOutageNeverLosesTheComment": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
             "avg_time": 0.005,
-            "trail": "PPPP",
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1397,14 +1503,15 @@
             "flaky": false
         },
         "common\\tests\\Unit\\Services\\CommentServiceTest::testUpdatePublishesTheNewState": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.005,
-            "trail": "PPPP",
+            "avg_time": 0.006,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "PP",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "unit",
             "file": "common/tests/Unit/Services/CommentServiceTest.php",
@@ -1412,14 +1519,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoFlagMarksCommentsAsDemo": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.225,
-            "trail": "PPP",
+            "avg_time": 0.227,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1427,14 +1535,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoPageRendersPipelineAndControls": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.801,
-            "trail": "PPP",
+            "avg_time": 0.824,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1442,14 +1551,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetPurgesOnlyDemoCommentsAndAnnouncesIt": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.05,
-            "trail": "PPP",
+            "avg_time": 0.053,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1457,14 +1567,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetRequiresPost": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.053,
-            "trail": "PPP",
+            "avg_time": 0.062,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1472,14 +1583,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::ajaxPostPersistsAndPublishesOnce": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.089,
-            "trail": "PPP",
+            "avg_time": 0.083,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1487,14 +1599,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::avatarsAreDeterministicAndCacheable": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.031,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1502,14 +1615,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::blankNameGetsAStableGuestHandle": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.218,
-            "trail": "PPP",
+            "avg_time": 0.19,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1517,14 +1631,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::feedIsNewestFirstWithIdTieBreakAndHidesHidden": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.047,
-            "trail": "PPP",
+            "avg_time": 0.048,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1532,14 +1647,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::hiddenCommentsCannotBeLiked": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.052,
-            "trail": "PPP",
+            "avg_time": 0.055,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1547,14 +1663,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::invalidPostIsRejectedWith422AndNothingHappens": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.059,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1562,14 +1679,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::likeTogglesPersistsAndPublishes": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.15,
-            "trail": "PPP",
+            "avg_time": 0.149,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1577,14 +1695,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::loadMoreNeverDuplicatesWhileNewCommentsArrive": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.562,
-            "trail": "PPP",
+            "avg_time": 0.56,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1592,14 +1711,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::malformedCursorIs400": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.016,
-            "trail": "PPP",
+            "avg_time": 0.013,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1607,14 +1727,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::markupInCommentsIsRenderedAsText": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.106,
-            "trail": "PPP",
+            "avg_time": 0.111,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1622,14 +1743,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::noJavascriptFallbackPostsAndRedirects": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.185,
-            "trail": "PPP",
+            "avg_time": 0.206,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1637,14 +1759,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::privilegedFieldsCannotBeInjected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.061,
-            "trail": "PPP",
+            "avg_time": 0.06,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1652,14 +1775,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::publicSocketTokenHasPublicScopeOnly": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.014,
-            "trail": "PPP",
+            "avg_time": 0.013,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1667,14 +1791,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::relayOutageIsReportedButCommentIsKept": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.074,
-            "trail": "PPP",
+            "avg_time": 0.068,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1682,14 +1807,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::requestWithoutCsrfTokenIsRefused": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.016,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1697,14 +1823,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::wallRendersComposerWithoutLogin": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
-            "avg_time": 0.056,
-            "trail": "PPP",
+            "avg_time": 0.055,
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1712,14 +1839,15 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\WallCest::wrongVerbsAreRejected": {
-            "runs": 3,
+            "runs": 4,
             "fails": 0,
             "avg_time": 0.021,
-            "trail": "PPP",
+            "trail": "PPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
-                "259a04c+c8d8bc": "P"
+                "259a04c+c8d8bc": "P",
+                "ddd2cce+c1dc7e": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/WallCest.php",
@@ -1727,5 +1855,5 @@
             "flaky": false
         }
     },
-    "updated_at": "2026-11-26T13:32:06+00:00"
+    "updated_at": "2026-11-26T13:42:46+00:00"
 }

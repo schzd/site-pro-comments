@@ -51,7 +51,7 @@ return [
     'S6' => [
         'title' => 'The WS relay authenticates sockets and fans the event out per scope',
         'routes' => ['frontend:comment/ws-token'],
-        'paths' => ['common/realtime/RelayHub.php', 'common/realtime/SocketTokenService.php', 'common/realtime/SocketGrant.php', 'console/controllers/WsController.php', 'common/assets/theme/echo-core.js'],
+        'paths' => ['common/realtime/RelayHub.php', 'common/realtime/SocketTokenService.php', 'common/realtime/SocketGrant.php', 'console/controllers/WsController.php', 'common/assets/theme/echo-core.js', 'frontend/Dockerfile', 'backend/Dockerfile'],
         'require' => ['unit', 'smoke', 'e2e'],
     ],
     'S7' => [

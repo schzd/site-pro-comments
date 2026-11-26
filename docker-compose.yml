@@ -14,10 +14,15 @@ x-php-env: &php-env
   REDIS_PORT: "6379"
   COMMENTS_CHANNEL: comments
   WS_LISTEN: 0.0.0.0:8080
-  WS_PUBLIC_URL: ws://localhost:8080
+  # Browsers connect same-origin to /ws/ (Apache tunnels it to WS_UPSTREAM),
+  # so the socket works on localhost, behind HTTPS and in Codespaces alike.
+  WS_PUBLIC_URL: /ws
+  WS_UPSTREAM: ws:8080
   WS_TOKEN_SECRET: dev-only-ws-token-secret-0f9c2a7e
-  FRONTEND_PUBLIC_URL: http://localhost:20080
-  BACKEND_PUBLIC_URL: http://localhost:21080
+  # Overridable only because a Codespace serves each port on its own domain
+  # (.devcontainer/post-start.sh writes them to .env). Locally: these values.
+  FRONTEND_PUBLIC_URL: ${FRONTEND_PUBLIC_URL:-http://localhost:20080}
+  BACKEND_PUBLIC_URL: ${BACKEND_PUBLIC_URL:-http://localhost:21080}
   DEMO_MODE: "on"
   ADMIN_USERNAME: admin
   ADMIN_EMAIL: admin@example.com
@@ -29,7 +34,7 @@ x-php-env-e2e: &php-env-e2e
   <<: *php-env
   DB_DSN: mysql:host=mysql;port=3306;dbname=yii2advanced_e2e;charset=utf8mb4
   COMMENTS_CHANNEL: comments_e2e
-  WS_PUBLIC_URL: ws://ws-test:8080
+  WS_UPSTREAM: ws-test:8080
   FRONTEND_PUBLIC_URL: http://frontend-test
   BACKEND_PUBLIC_URL: http://backend-test
   ADMIN_USERNAME: e2e-admin

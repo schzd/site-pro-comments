@@ -1,0 +1,24 @@
+{
+  "name": "Echo — Yii2 real-time comments",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+  "forwardPorts": [20080, 21080, 7900],
+  "portsAttributes": {
+    "20080": { "label": "Public wall", "onAutoForward": "openBrowser" },
+    "21080": { "label": "Admin panel (admin / admin12345)", "onAutoForward": "notify" },
+    "7900": { "label": "Selenium noVNC (password: secret)", "onAutoForward": "silent" },
+    "8080": { "label": "WS relay (direct, optional)", "onAutoForward": "silent" }
+  },
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  }
+}

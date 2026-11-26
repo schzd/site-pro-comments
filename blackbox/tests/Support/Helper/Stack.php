@@ -51,6 +51,16 @@ final class Stack extends Module
         return WebSocketClient::connect($this->config['wsHost'], (int) $this->config['wsPort'], '/?token=' . rawurlencode($token));
     }
 
+    /**
+     * The way browsers connect: same origin as the page, /ws/ tunnelled by Apache.
+     */
+    public function openSocketThroughApp(string $appUrl, string $token): WebSocketClient
+    {
+        $u = parse_url($appUrl);
+
+        return WebSocketClient::connect($u['host'], (int) ($u['port'] ?? 80), '/ws/?token=' . rawurlencode($token));
+    }
+
     /** Raw handshake with an arbitrary query (for negative tests). */
     public function openSocketRaw(string $path): WebSocketClient
     {

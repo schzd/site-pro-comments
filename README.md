@@ -35,6 +35,8 @@ The tests are traced step by step to the pipeline they protect.
 
 Requires only Docker. There is no PHP or Composer on the host; everything runs in containers.
 
+**No Docker? Run it in the browser:** [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/schzd/site-pro-comments). The devcontainer (`.devcontainer/`) starts the whole stack on its own; open port **20080** (wall) and **21080** (admin) from the Ports tab. The first start takes ~3–5 minutes (composer install). Tests run there the same way.
+
 ```bash
 git clone <this repo> && cd site-pro-comments
 docker compose up -d          # mysql, redis, setup (composer + init + migrations + admin), frontend, backend, ws
@@ -44,7 +46,7 @@ docker compose up -d          # mysql, redis, setup (composer + init + migration
 |---|---|---|
 | Public wall | http://localhost:20080 | post without logging in |
 | Admin panel | http://localhost:21080 | **admin / admin12345** |
-| WebSocket relay | ws://localhost:8080 | token-authenticated |
+| WebSocket | `ws://<page host>/ws/` | same origin as the page: Apache tunnels `/ws/` to the relay (`ws:8080`), so it works behind HTTPS and in Codespaces too |
 | Live demo | http://localhost:20080/demo | press **▶ Play Demo** |
 | Easter egg | http://localhost:20080/game/ | *Pegasus Dodge*, a branded three.js mini-game |
 
@@ -70,7 +72,7 @@ To watch the E2E browser live, open http://localhost:7900 (noVNC, password `secr
 | Admin: **login**, **list**, **edit**, **delete** | `backend/controllers/{Site,Comment}Controller.php`, `backend/views/comment/*` | S7–S9 |
 | New comment appears in the admin list **in real time via web-sockets** | Redis pub/sub → `php yii ws/serve` (Ratchet + clue/redis-react) → `backend/web/js/admin-live.js` | S5, S6, S8 |
 | **Whole project in Docker** | `docker-compose.yml`: mysql, redis, setup, frontend, backend, ws (+ test profile) | Smoke suite runs against the containers |
-| **Unit, smoke, e2e, regression** tests, each explained | [§5](#5-test-suites) | 144 tests, all green (output in §5) |
+| **Unit, smoke, e2e, regression** tests, each explained | [§5](#5-test-suites) | 145 tests, all green (output in §5) |
 | **Walk one comment** from the form to the admin list and name the test that locks each step | [§4](#4-review-walkthrough-one-comment-from-the-form-to-the-admin-list) and the generated [docs/TRACEABILITY.md](docs/TRACEABILITY.md) | `qa matrix --strict` |
 
 ---
@@ -98,6 +100,7 @@ flowchart LR
   * A Redis outage never loses a comment, and it is never hidden either. The API returns
     `realtime: {delivered: false}`, the event is logged, and the admin's `LIVE` indicator goes `offline`.
   * `PUBLISH` returns its subscriber count. `subscribers: 0` distinctly means "Redis is up but the relay isn't listening".
+* **Same-origin WebSocket.** Browsers connect to `/ws/` on the page's own host, and each app's Apache (`mod_proxy_wstunnel`) tunnels it to the relay. One origin, `wss://` behind HTTPS, no extra port to expose. The relay port 8080 stays published for direct debugging.
 * **Crash-only relay.** If the Redis connection drops, `ws/serve` exits non-zero and Docker restarts it. Browsers reconnect with backoff.
 * **Signed, scoped, short-lived socket tokens** (`SocketTokenService`, HMAC-SHA256, 60 s TTL, handshake only).
   * `admin` scope: receives every event with private fields (IP, hidden rows).
@@ -125,7 +128,7 @@ The full, always-current matrix (every test, with its last result) is generated 
 | **S3** | `CommentService::create()` saves it in MySQL as `published` with the client IP. | `common/services/CommentService.php` | Unit `CommentServiceTest::testCreatePersistsThenPublishesOnce`, `…RelayOutageNeverLosesTheComment` · Regression `WallCest::ajaxPostPersistsAndPublishesOnce` (asserts the DB row) · Smoke `postIsAcceptedAndReachesTheRelay` |
 | **S4** | It appears at the top of the public feed: newest first, HTML escaped, deterministic identicon, `@handle`. Other visitors receive it live, and readers who have scrolled down get a "↑ N новых" pill. | `_card.php`, `CommentQuery`, `Handle`, `Avatar`, `wall.js` | Unit `CommentQueryTest` (id tie-break, keyset) · Regression `WallCest::feedIsNewestFirst…`, `…markupInCommentsIsRenderedAsText`, `…loadMoreNeverDuplicatesWhileNewCommentsArrive` · Smoke `postedCommentIsInThePublicFeed` · E2E `PublicWallLiveCest::otherVisitorsSeeNewPostsLive`, `…scrolledReaderGetsNewPostsPill` |
 | **S5** | The service publishes `comment.created` on the Redis channel. The v1 envelope carries the full admin row and a trace id, and the response reports `delivered` and `subscribers`. | `common/realtime/{Envelope,RedisCommentEventPublisher}.php` | Unit `EnvelopeTest` (wire format, rejects garbage) · Unit `RedisCommentEventPublisherTest` (0 subscribers, outage) · Regression `WallCest::relayOutageIsReportedButCommentIsKept` · Smoke `postIsAcceptedAndReachesTheRelay` (**subscribers ≥ 1** on the real Redis) |
-| **S6** | The relay receives it and fans it out per scope. Admin sockets get the full row; public sockets get the projection. Sockets without a valid token are closed with code **4401**. | `common/realtime/RelayHub.php`, `console/controllers/WsController.php` | Unit `RelayHubTest` (11 cases with fake Ratchet connections) · Unit `SocketTokenServiceTest` (expiry, forgery, privilege escalation) · Smoke `relayRejectsSocketsWithoutValidToken`, `relayClosesTokenlessSocketWith4401`, `relayGreetsPublicSocket` |
+| **S6** | The relay receives it and fans it out per scope. Admin sockets get the full row; public sockets get the projection. Sockets without a valid token are closed with code **4401**. | `common/realtime/RelayHub.php`, `console/controllers/WsController.php` | Unit `RelayHubTest` (11 cases with fake Ratchet connections) · Unit `SocketTokenServiceTest` (expiry, forgery, privilege escalation) · Smoke `relayRejectsSocketsWithoutValidToken`, `relayClosesTokenlessSocketWith4401`, `relayGreetsPublicSocket`, `relayIsReachableSameOriginThroughBothApps` (the Apache `/ws/` tunnel the browsers use) |
 | **S7** | The administrator signs in at `/login` and the page fetches an **admin-scope** token from `/ws-token`. | `backend/controllers/SiteController.php` | Regression `AdminCest::guestsAreSentToLogin`, `…wrongPasswordIsRejected`, `…adminSocketTokenCarriesAdminScopeAndUserId` · Smoke `adminLoginPageIsUp` · E2E `LiveCommentFlowCest` (real login) |
 | **S8** | **The row appears in the admin list without a reload**, flashes lime, and the counters update. | `backend/web/js/admin-live.js`, `_row.php` | Smoke **`adminSocketReceivesTheNewCommentLive`** (raw WebSocket: the frame with the *same trace id*, private fields included) · Regression `AdminCest::listIsNewestFirst…` · E2E **`LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`** (two tabs, a real browser; asserts the row arrives, carries `is-new`, and that a JS marker survived, so the page provably never reloaded) |
 | **S9** | The admin edits, hides or deletes it. Each change is published again, and every open wall and admin page follows live. | `CommentService::update/delete`, backend views | Unit `CommentServiceTest::testUpdatePublishesTheNewState`, `…DeletePublishesIdAfterRemoval` · Regression `AdminCest::editSavesAndPublishesUpdate`, `…hidingAPublishedComment…`, `…deleteIsPostOnlyCsrfProtected…` · E2E `LiveCommentFlowCest` (edit, then delete, while the visitor's tab updates) |
@@ -138,7 +141,7 @@ The walkthrough can also be replayed live by an AI agent: `/walkthrough` (see [�
 
 ```
 docker compose run --rm tester unit          #  92 tests   ~8 s   no network services
-docker compose run --rm tester smoke         #  11 tests   ~10 s  needs: docker compose --profile test up -d
+docker compose run --rm tester smoke         #  12 tests   ~10 s  needs: docker compose --profile test up -d
 docker compose run --rm tester regression    #  34 tests   ~15 s
 docker compose run --rm tester e2e           #   7 tests   ~45 s  real Chromium
 docker compose run --rm tester all           # gate order, stops at the first red suite
@@ -179,7 +182,7 @@ The `qa` shards balance by measured time rather than by count.
 ================================================================ unit
 OK (92 tests, 2767 assertions)
 ================================================================ smoke
-OK (11 tests, 38 assertions)
+OK (12 tests, 41 assertions)
 ================================================================ regression
 OK (21 tests, 78 assertions)        # frontend
 OK (13 tests, 44 assertions)        # backend
@@ -300,7 +303,7 @@ These were found by the suites while building the project, not seeded. Each one 
 |---|---|
 | `DB_DSN`, `DB_USERNAME`, `DB_PASSWORD` | MySQL (the test runner switches the schema per suite / worker) |
 | `REDIS_HOST`, `REDIS_PORT`, `COMMENTS_CHANNEL` | pub/sub channel (`comments`; the test stack uses `comments_e2e`) |
-| `WS_LISTEN`, `WS_PUBLIC_URL`, `WS_TOKEN_SECRET` | relay bind address, the browser-facing URL, the HMAC secret |
+| `WS_LISTEN`, `WS_UPSTREAM`, `WS_PUBLIC_URL`, `WS_TOKEN_SECRET` | relay bind address, the relay address Apache tunnels `/ws/` to, the browser-facing URL (`/ws` = same origin), the HMAC secret |
 | `FRONTEND_PUBLIC_URL`, `BACKEND_PUBLIC_URL` | cross-links and avatar URLs |
 | `DEMO_MODE` | `on` / `off` |
 | `ADMIN_USERNAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` | seeded by `php yii seed/admin` (idempotent) |
