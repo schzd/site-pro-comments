@@ -25,7 +25,7 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
-composer.lock
+# composer.lock is committed: this is an application, installs must be reproducible
 
 # Mac DS_Store Files
 .DS_Store

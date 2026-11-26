@@ -1,9 +1,4 @@
 <?php
 
-return [
-    'components' => [
-        'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=yii2advanced_test',
-        ],
-    ],
-];
+// The test database is selected through DB_DSN (see docker/tester/run.sh).
+return [];

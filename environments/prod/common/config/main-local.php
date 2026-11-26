@@ -10,13 +10,7 @@ return [
         ],
     ],
     'components' => [
-        'db' => [
-            'class' => \yii\db\Connection::class,
-            'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-        ],
+        // 'db' is configured from environment variables in common/config/main.php
         'mailer' => \yii\mail\MailerInterface::class,
     ],
 ];

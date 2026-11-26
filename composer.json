@@ -17,7 +17,10 @@
         "php": ">=8.2",
         "yiisoft/yii2": "~2.0.54",
         "yiisoft/yii2-bootstrap5": "~2.0.2",
-        "yiisoft/yii2-symfonymailer": "~2.0.3"
+        "yiisoft/yii2-symfonymailer": "~2.0.3",
+        "yiisoft/yii2-redis": "~2.0.18",
+        "cboden/ratchet": "^0.4.4",
+        "clue/redis-react": "^2.8"
     },
     "require-dev": {
         "codeception/c3": "^2.8",
@@ -33,7 +36,8 @@
         "yiisoft/yii2-coding-standards": "^3.0",
         "yiisoft/yii2-debug": "~2.1.0",
         "yiisoft/yii2-faker": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.2.0"
+        "yiisoft/yii2-gii": "~2.2.0",
+        "codeception/module-webdriver": "^4.0"
     },
     "autoload-dev": {
         "psr-4": {

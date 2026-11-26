@@ -1,36 +1,206 @@
+name: site-pro-comments
+
+# ---------------------------------------------------------------------------
+# One environment block shared by every PHP container. All application
+# configuration is read from here (see common/helpers/Env.php) — the app
+# refuses to boot if a variable is missing, there are no hidden defaults.
+# These are DEVELOPMENT credentials only.
+# ---------------------------------------------------------------------------
+x-php-env: &php-env
+  DB_DSN: mysql:host=mysql;port=3306;dbname=yii2advanced;charset=utf8mb4
+  DB_USERNAME: yii2advanced
+  DB_PASSWORD: secret
+  REDIS_HOST: redis
+  REDIS_PORT: "6379"
+  COMMENTS_CHANNEL: comments
+  WS_LISTEN: 0.0.0.0:8080
+  WS_PUBLIC_URL: ws://localhost:8080
+  WS_TOKEN_SECRET: dev-only-ws-token-secret-0f9c2a7e
+  FRONTEND_PUBLIC_URL: http://localhost:20080
+  BACKEND_PUBLIC_URL: http://localhost:21080
+  DEMO_MODE: "on"
+  ADMIN_USERNAME: admin
+  ADMIN_EMAIL: admin@example.com
+  ADMIN_PASSWORD: admin12345
+
+# Same app, pointed at an isolated database + Redis channel. Used by the
+# black-box suites (Smoke, E2E) so tests never touch development data.
+x-php-env-e2e: &php-env-e2e
+  <<: *php-env
+  DB_DSN: mysql:host=mysql;port=3306;dbname=yii2advanced_e2e;charset=utf8mb4
+  COMMENTS_CHANNEL: comments_e2e
+  WS_PUBLIC_URL: ws://ws-test:8080
+  FRONTEND_PUBLIC_URL: http://frontend-test
+  BACKEND_PUBLIC_URL: http://backend-test
+  ADMIN_USERNAME: e2e-admin
+  ADMIN_EMAIL: e2e-admin@example.com
+  ADMIN_PASSWORD: e2e-admin-pass
+
+x-php-cli: &php-cli
+  image: yiisoftware/yii2-php:8.4-apache
+  working_dir: /app
+  volumes:
+    - ./:/app
+    - composer-cache:/root/.composer/cache
+
 services:
 
-  frontend:
-    build: frontend
-    ports:
-      - 20080:80
-    volumes:
-      # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      # Mount source-code for development
-      - ./:/app
-
-  backend:
-    build: backend
-    ports:
-      - 21080:80
-    volumes:
-      # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      # Mount source-code for development
-      - ./:/app
+  # --- infrastructure -------------------------------------------------------
 
   mysql:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD=verysecret
-      - MYSQL_DATABASE=yii2advanced
-      - MYSQL_USER=yii2advanced
-      - MYSQL_PASSWORD=secret
+      MYSQL_ROOT_PASSWORD: verysecret
+      MYSQL_DATABASE: yii2advanced
+      MYSQL_USER: yii2advanced
+      MYSQL_PASSWORD: secret
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pverysecret"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
 
-  #pgsql:
-  #  image: postgres:16
-  #  environment:
-  #    - POSTGRES_DB=yii2advanced
-  #    - POSTGRES_USER=yii2advanced
-  #    - POSTGRES_PASSWORD=secret
+  redis:
+    image: redis:7.4-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # One-shot: composer install, `php init`, migrations, admin seed.
+  # Every app container waits for it to finish successfully.
+  setup:
+    <<: *php-cli
+    environment: *php-env
+    command: ["bash", "docker/setup.sh"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # --- application ----------------------------------------------------------
+
+  frontend:
+    build: frontend
+    ports:
+      - "20080:80"
+    environment: *php-env
+    volumes:
+      - ./:/app
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  backend:
+    build: backend
+    ports:
+      - "21080:80"
+    environment: *php-env
+    volumes:
+      - ./:/app
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  # Long-running WebSocket relay: Ratchet server + non-blocking Redis
+  # subscriber on one ReactPHP loop. Crash-only: if Redis goes away it exits
+  # non-zero and Docker restarts it (visible in `docker compose logs ws`).
+  ws:
+    <<: *php-cli
+    environment: *php-env
+    command: ["php", "yii", "ws/serve"]
+    init: true
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  # --- isolated test stack (docker compose --profile test ...) --------------
+
+  frontend-test:
+    profiles: ["test"]
+    build: frontend
+    environment: *php-env-e2e
+    volumes:
+      - ./:/app
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  backend-test:
+    profiles: ["test"]
+    build: backend
+    environment: *php-env-e2e
+    volumes:
+      - ./:/app
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  ws-test:
+    <<: *php-cli
+    profiles: ["test"]
+    environment: *php-env-e2e
+    command: ["php", "yii", "ws/serve"]
+    init: true
+    restart: unless-stopped
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+
+  # Real Chromium driven over WebDriver. Watch E2E runs live at
+  # http://localhost:7900 (noVNC, password: secret).
+  selenium:
+    profiles: ["test"]
+    image: selenium/standalone-chromium:4.27.0
+    shm_size: 2gb
+    environment:
+      SE_NODE_MAX_SESSIONS: "4"
+      SE_NODE_OVERRIDE_MAX_SESSIONS: "true"
+      SE_VNC_NO_PASSWORD: "false"
+    ports:
+      - "7900:7900"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:4444/status"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+
+  # Test runner. `docker compose run --rm tester <unit|smoke|regression|e2e|all>`
+  tester:
+    <<: *php-cli
+    profiles: ["test"]
+    environment:
+      <<: *php-env-e2e
+      E2E_FRONTEND_URL: http://frontend-test
+      E2E_BACKEND_URL: http://backend-test
+      E2E_WS_HOST: ws-test
+      E2E_WS_PORT: "8080"
+      SELENIUM_HOST: selenium
+    entrypoint: ["bash", "docker/tester/run.sh"]
+    command: ["all"]
+    depends_on:
+      setup:
+        condition: service_completed_successfully
+
+volumes:
+  mysql-data:
+  composer-cache:
