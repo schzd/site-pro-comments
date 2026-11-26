@@ -327,4 +327,5 @@ docker/      setup.sh, tester/run.sh, mysql initdb (one schema per suite)
 * There is no rate limit on posting comments (likes are limited per IP). A Redis token bucket would be the next step.
 * Ratchet 0.4.4 (the latest release) raises PHP 8.4 deprecation notices from vendor code; the relay silences only `E_DEPRECATED`.
 * The UI language is deliberate: the public wall is in Russian, the admin panel in English, and the README in English.
-* `.github/workflows/ci.yml` mirrors the local commands, but it has not run on GitHub yet; it will on the first push.
+* CI (`.github/workflows/ci.yml`) is green on GitHub for pushes (stack up → unit → smoke → `qa gaps`). The pull-request and nightly jobs (regression, sharded E2E, quarantine) have not been triggered yet; no PR has been opened.
+* The Codespaces devcontainer is written and its commands are verified locally (`up --wait`, same-origin `/ws/` tunnel), but it has not been launched in a real Codespace yet.
