@@ -1,11 +1,51 @@
-# Echo: a real-time comment wall on Yii2
+<p align="center">
+  <img src="docs/banner.png" alt="Echo: a real-time comment wall on Yii2" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/schzd/site-pro-comments/actions/workflows/ci.yml"><img src="https://github.com/schzd/site-pro-comments/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <img src="https://img.shields.io/badge/tests-145%20passing-dcff48?style=flat-square&labelColor=121310" alt="145 tests passing">
+  <img src="https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=121310" alt="PHP 8.4">
+  <img src="https://img.shields.io/badge/Yii-2.0.54-dcff48?style=flat-square&labelColor=121310" alt="Yii 2.0.54">
+  <img src="https://img.shields.io/badge/WebSockets-Ratchet%20%2B%20Redis-dcff48?style=flat-square&labelColor=121310" alt="WebSockets">
+  <img src="https://img.shields.io/badge/Docker-one%20command-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=121310" alt="Docker">
+  <img src="https://img.shields.io/badge/Codeception-5-dcff48?style=flat-square&labelColor=121310" alt="Codeception 5">
+  <img src="https://img.shields.io/badge/MCP-ready-dcff48?style=flat-square&labelColor=121310" alt="MCP ready">
+  <a href="https://codespaces.new/schzd/site-pro-comments"><img src="https://img.shields.io/badge/Open%20in-Codespaces-dcff48?style=flat-square&logo=github&labelColor=121310" alt="Open in Codespaces"></a>
+</p>
+
+<p align="center">
+  <b>Post without logging in → the admin sees it appear live over WebSockets.</b><br>
+  One command: <code>docker compose up -d</code> · 145 tests traced to every step of the pipeline.
+</p>
+
+<p align="center">
+  <a href="#1-quick-start">Quick start</a> ·
+  <a href="#4-review-walkthrough-one-comment-from-the-form-to-the-admin-list">Walkthrough</a> ·
+  <a href="#5-test-suites">Test suites</a> ·
+  <a href="#6-test-intelligence-a-suite-that-learns-and-grows">Test intelligence</a> ·
+  <a href="#7-for-ai-agents">AI agents</a> ·
+  <a href="https://github.com/schzd/site-pro-comments/releases/tag/v1.0.0">Video</a>
+</p>
+
+> Site.pro / Borcov Group homework `#php`. Author: Shahzod (QA Automation / SDET).
+
+### See it in 10 seconds
+
+<p align="center"><img src="docs/realtime.gif" alt="A visitor posts on the wall; the row appears in the admin list in under half a second, without a reload" width="100%"></p>
+
+### 2:37 explainer (Russian voice-over)
+
+https://github.com/user-attachments/assets/cdab4b09-c02b-492e-9adf-00200e43e9e0
+
+<sub>Can't play it inline? The 1080p file is on the <a href="https://github.com/schzd/site-pro-comments/releases/tag/v1.0.0">v1.0.0 release</a>.</sub>
+
+### What it is
 
 Visitors post on a public wall **without logging in**. Administrators log in, moderate the comments
 (edit, hide, delete) and see every new comment **arrive in their list live over WebSockets**.
 The whole system runs in Docker and is covered by **unit, smoke, regression and end-to-end tests**.
 The tests are traced step by step to the pipeline they protect.
-
-> Site.pro / Borcov Group homework `#php`. Author: Shahzod (QA Automation / SDET).
 
 | Public wall (desktop) | Admin: a row that just arrived over the WebSocket |
 |---|---|
