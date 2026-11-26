@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
     require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
+    require __DIR__ . '/params-local.php',
 );
 
 return [
     'id' => 'app-backend',
+    'name' => 'Echo Control',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
+    'defaultRoute' => 'comment/index',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
@@ -20,11 +24,11 @@ return [
         'user' => [
             'identityClass' => \common\models\User::class,
             'enableAutoLogin' => true,
+            'loginUrl' => ['/site/login'],
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'echo-backend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -38,14 +42,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '' => 'comment/index',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
+                'comments/<id:\d+>/edit' => 'comment/update',
+                'comments/<id:\d+>/delete' => 'comment/delete',
+                'ws-token' => 'comment/ws-token',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

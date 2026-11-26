@@ -5,37 +5,50 @@ declare(strict_types=1);
 /** @var yii\web\View $this */
 /** @var string $content */
 
-use common\widgets\Alert;
-use yii\bootstrap5\Breadcrumbs;
+use backend\assets\AppAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
-$this->render('_head');
+AppAsset::register($this);
+$user = Yii::$app->user->identity;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100" data-bs-theme="light">
+<html lang="en">
 <head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $this->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?> · Echo Control</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <?php $this->head() ?>
-    <title><?= Html::encode($this->title) ?></title>
 </head>
-<body class="d-flex flex-column h-100">
+<body class="admin">
 <?php $this->beginBody() ?>
-
-<?= $this->render('_header') ?>
-
-<main id="main" class="flex-grow-1" role="main">
-    <div class="container">
-        <?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+<header class="cp-top">
+    <a class="brand" href="<?= Url::home() ?>"><span class="brand-mark">e</span>Echo <span class="cp-sub mono">/ control</span></a>
+    <div class="cp-top-right">
+        <span class="live" data-live data-state="offline" title="WebSocket relay">offline</span>
+        <a class="cp-link" href="<?= Html::encode(Yii::$app->params['frontend.publicUrl']) ?>" target="_blank" rel="noopener">Public wall ↗</a>
+        <?php if ($user): ?>
+            <span class="cp-user mono">@<?= Html::encode($user->username) ?></span>
+            <?= Html::beginForm(['/site/logout'], 'post', ['class' => 'cp-logout']) ?>
+                <button type="submit" class="btn btn-sm">Logout</button>
+            <?= Html::endForm() ?>
         <?php endif ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
     </div>
+</header>
+<main class="cp-main">
+    <?php foreach (['success' => 'ok', 'warning' => 'warn', 'error' => 'err'] as $key => $kind): ?>
+        <?php if (Yii::$app->session->hasFlash($key)): ?>
+            <div class="flash flash-<?= $kind ?>" role="status"><?= Html::encode(Yii::$app->session->getFlash($key)) ?></div>
+        <?php endif ?>
+    <?php endforeach ?>
+    <?= $content ?>
 </main>
-
-<?= $this->render('_footer') ?>
-
 <?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage();
+<?php $this->endPage() ?>

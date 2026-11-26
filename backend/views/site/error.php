@@ -11,25 +11,10 @@ use yii\helpers\Html;
 use yii\web\HttpException;
 
 $this->title = $name;
-$statusCode = $exception instanceof HttpException ? $exception->statusCode : 500;
+$code = $exception instanceof HttpException ? $exception->statusCode : 500;
 ?>
-<div class="site-error d-flex align-items-center justify-content-center text-center">
-    <div class="site-error-content mx-auto">
-        <h1 class="display-1 fw-bold text-body-secondary mb-0"><?= Html::encode((string) $statusCode) ?></h1>
-
-        <h2 class="display-6 fw-semibold mb-3"><?= Html::encode($message) ?></h2>
-
-        <p class="text-body-secondary mb-4">
-            The above error occurred while the Web server was processing your request.
-            Please contact us if you think this is a server error. Thank you.
-        </p>
-
-        <?= Html::a(
-            'Go to Homepage',
-            Yii::$app->homeUrl,
-            [
-                'class' => 'btn btn-outline-primary btn-lg',
-            ],
-        ) ?>
-    </div>
-</div>
+<section class="cp-error">
+    <div class="cp-error-code mono"><?= (int) $code ?></div>
+    <h1><?= Html::encode($message) ?></h1>
+    <a class="btn btn-lime" href="<?= Yii::$app->homeUrl ?>">Back to comments</a>
+</section>
