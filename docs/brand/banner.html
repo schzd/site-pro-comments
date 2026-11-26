@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #121310; }
+  .card { width: 1280px; height: 640px; position: relative; overflow: hidden; box-sizing: border-box; padding: 64px 72px;
+    font-family: "Chakra Petch", sans-serif; color: #eeedea;
+    background:
+      radial-gradient(700px 380px at 92% 8%, rgba(220,255,72,.13), transparent 60%),
+      radial-gradient(600px 300px at 0% 100%, rgba(220,255,72,.07), transparent 60%),
+      linear-gradient(#121310, #121310); }
+  .grid { position: absolute; inset: 0; background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 40px 40px; mask-image: radial-gradient(circle at 70% 40%, #000 30%, transparent 75%); }
+  .brand { display: flex; align-items: center; gap: 18px; position: relative; }
+  .mark { width: 68px; height: 68px; border-radius: 16px; background: #dcff48; color: #121310; display: grid; place-items: center;
+    font: 700 40px "JetBrains Mono", monospace; box-shadow: 0 0 60px rgba(220,255,72,.35); }
+  .name { font-size: 62px; font-weight: 700; letter-spacing: .2em; }
+  h1 { position: relative; margin: 34px 0 10px; font-size: 50px; line-height: 1.08; font-weight: 700; max-width: 640px; }
+  h1 em { font-style: normal; color: #dcff48; }
+  .sub { position: relative; color: #9a9b90; font-size: 22px; max-width: 600px; margin: 0; }
+  .chips { position: relative; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; max-width: 640px; }
+  .chip { font: 600 15px "JetBrains Mono", monospace; padding: 7px 13px; border-radius: 999px; border: 1px solid #3b3e2d; color: #c9c9c0; background: rgba(27,28,24,.8); }
+  .chip.l { color: #dcff48; border-color: rgba(220,255,72,.5); background: rgba(220,255,72,.08); }
+  .cmd { position: absolute; left: 72px; bottom: 56px; font: 600 20px "JetBrains Mono", monospace; color: #dcff48;
+    padding: 12px 18px; border: 1px solid rgba(220,255,72,.4); border-radius: 12px; background: #0d0e0b; }
+  .cmd span { color: #6b6c62; }
+  svg.pipe { position: absolute; right: 56px; top: 118px; }
+  .node rect { fill: #121310; stroke: #dcff48; stroke-width: 1.6; }
+  .node .t { fill: #dcff48; font: 700 15px "Chakra Petch"; letter-spacing: .12em; }
+  .node .s { fill: #6b6c62; font: 400 11.5px "JetBrains Mono"; }
+  .edge { fill: none; stroke: #dcff48; stroke-width: 2; opacity: .85; }
+  .dot { fill: #dcff48; filter: drop-shadow(0 0 6px #dcff48); }
+  .tests { position: absolute; right: 64px; bottom: 56px; display: flex; gap: 12px; }
+  .t-box { width: 108px; padding: 12px 14px; border: 1px solid #2c2e22; border-radius: 12px; background: rgba(27,28,24,.9); }
+  .t-box b { display: block; font: 700 34px "Chakra Petch"; color: #dcff48; line-height: 1; }
+  .t-box span { font: 600 12px "JetBrains Mono"; color: #9a9b90; letter-spacing: .08em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="grid"></div>
+  <div class="brand"><div class="mark">e</div><div class="name">ECHO</div></div>
+  <h1>Real-time comment wall on <em>Yii2</em></h1>
+  <p class="sub">Post without login · admin sees it live over WebSockets · one-command Docker</p>
+  <div class="chips">
+    <span class="chip l">WebSockets</span><span class="chip">Ratchet + ReactPHP</span><span class="chip">Redis pub/sub</span>
+    <span class="chip">MySQL</span><span class="chip">Codeception</span><span class="chip">Selenium E2E</span><span class="chip l">MCP for AI agents</span>
+  </div>
+  <div class="cmd"><span>$</span> docker compose up -d</div>
+
+  <svg class="pipe" width="470" height="300" viewBox="0 0 470 300">
+    <path class="edge" d="M118 60 C150 60 150 60 170 60"/>
+    <path class="edge" d="M288 50 C320 50 316 22 338 22"/>
+    <path class="edge" d="M288 70 C320 70 316 128 338 128"/>
+    <path class="edge" d="M400 152 C400 175 400 175 400 196"/>
+    <path class="edge" d="M338 226 C300 226 280 226 288 226"/>
+    <g class="node" transform="translate(0 32)"><rect width="118" height="56" rx="10"/><text class="t" x="14" y="25">VISITOR</text><text class="s" x="14" y="43">no login</text></g>
+    <g class="node" transform="translate(170 32)"><rect width="118" height="56" rx="10"/><text class="t" x="14" y="25">YII2</text><text class="s" x="14" y="43">POST /comments</text></g>
+    <g class="node" transform="translate(338 0)"><rect width="124" height="48" rx="10"/><text class="t" x="14" y="22">MYSQL</text><text class="s" x="14" y="38">INSERT</text></g>
+    <g class="node" transform="translate(338 104)"><rect width="124" height="48" rx="10"/><text class="t" x="14" y="22">REDIS</text><text class="s" x="14" y="38">PUBLISH</text></g>
+    <g class="node" transform="translate(338 196)"><rect width="124" height="56" rx="10"/><text class="t" x="14" y="25">WS RELAY</text><text class="s" x="14" y="43">Ratchet</text></g>
+    <g class="node" transform="translate(170 198)"><rect width="118" height="56" rx="10"/><text class="t" x="14" y="25">ADMIN</text><text class="s" x="14" y="43">live row ⚡</text></g>
+    <circle class="dot" cx="400" cy="176" r="5"/><circle class="dot" cx="312" cy="226" r="5"/>
+  </svg>
+
+  <div class="tests">
+    <div class="t-box"><b>92</b><span>unit</span></div>
+    <div class="t-box"><b>12</b><span>smoke</span></div>
+    <div class="t-box"><b>34</b><span>regression</span></div>
+    <div class="t-box"><b>7</b><span>e2e</span></div>
+  </div>
+</div>
+</body>
+</html>
