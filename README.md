@@ -33,14 +33,41 @@ The tests are traced step by step to the pipeline they protect.
 
 ## 1. Quick start
 
-Requires only Docker. There is no PHP or Composer on the host; everything runs in containers.
+Requires only Docker. There is no PHP or Composer on the host; everything runs in containers, and nothing depends
+on the author's machine. All images come from public Docker Hub, all PHP packages from Packagist. The same
+clone → `up` → tests path runs on a clean GitHub Actions machine on every push.
 
-**No Docker? Run it in the browser:** [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/schzd/site-pro-comments). The devcontainer (`.devcontainer/`) starts the whole stack on its own; open port **20080** (wall) and **21080** (admin) from the Ports tab. The first start takes ~3–5 minutes (composer install). Tests run there the same way.
+### Option A: on your computer (≈ 5 minutes)
 
-```bash
-git clone <this repo> && cd site-pro-comments
-docker compose up -d          # mysql, redis, setup (composer + init + migrations + admin), frontend, backend, ws
-```
+1. Install and start **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** (Windows / macOS), or Docker Engine + Compose v2 (Linux).
+2. Get the code, either with git:
+   ```bash
+   git clone https://github.com/schzd/site-pro-comments.git
+   cd site-pro-comments
+   ```
+   or without git: **Code → Download ZIP** on the GitHub page, then unzip and open a terminal in the folder.
+3. Start everything:
+   ```bash
+   docker compose up -d     # mysql, redis, setup (composer + init + migrations + admin), frontend, backend, ws
+   ```
+   The first start takes **3–5 minutes**: images download, `composer install` runs inside a container, and the
+   database is migrated and seeded. Follow the progress with `docker compose logs -f setup`. Later starts take seconds.
+4. Open http://localhost:20080 (wall) and http://localhost:21080 (admin, **admin / admin12345**).
+5. Stop it with `docker compose --profile test down`. Add `-v` to also delete the database volume.
+
+**Ports used:** 20080 (wall), 21080 (admin), 8080 (WS relay, direct), and 7900 (Selenium viewer, test profile only).
+They must be free.
+**Apple Silicon (M1–M4):** if the `yiisoftware/yii2-php` image has no arm64 build, Docker runs it under emulation.
+It works, just more slowly. Option B avoids this.
+
+### Option B: in the browser, nothing to install
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/schzd/site-pro-comments)
+
+You only need a GitHub account. The devcontainer (`.devcontainer/`) starts the whole stack on its own. Then open port
+**20080** (wall) and **21080** (admin) from the **Ports** tab. The first start takes about 3–5 minutes, and the tests
+run there the same way.
+*(The devcontainer is verified locally; it has not been launched in a real Codespace yet.)*
 
 | | URL | |
 |---|---|---|
@@ -48,7 +75,7 @@ docker compose up -d          # mysql, redis, setup (composer + init + migration
 | Admin panel | http://localhost:21080 | **admin / admin12345** |
 | WebSocket | `ws://<page host>/ws/` | same origin as the page: Apache tunnels `/ws/` to the relay (`ws:8080`), so it works behind HTTPS and in Codespaces too |
 | Live demo | http://localhost:20080/demo | press **▶ Play Demo** |
-| Easter egg | http://localhost:20080/game/ | *Pegasus Dodge*, a branded three.js mini-game |
+| Easter egg | http://localhost:20080/game/ | *Pegasus Dodge*, a branded three.js mini-game; also playable from `/demo` (**▲ Играть**) |
 
 Try the core requirement: open the admin panel and the wall side by side, then post on the wall.
 The row slides into the admin table with a lime flash, with no reload. The admin's edits and deletes then
@@ -249,11 +276,55 @@ Open this repository in Claude Code (or any MCP client) and it is ready to explo
 * **Sub-agent** `.claude/agents/test-scaler.md`: the loop gaps → claim in the registry → scaffold → implement → run → `matrix --strict`.
   An agent can extend the suites as the application evolves without having to re-learn the project.
 
-Example MCP output from this machine:
+### How to use it, step by step
+
+**With Claude Code** (CLI or desktop app):
+
+1. Start the stack. The test profile is needed only for the `run_tests` smoke/e2e tools:
+   ```bash
+   docker compose --profile test up -d
+   ```
+2. Open the project folder in Claude Code: run `claude` inside `site-pro-comments`, or open the folder in the desktop app.
+3. Claude Code detects `.mcp.json` and asks whether to enable the project MCP server **`echo-qa`**. Approve it.
+   The server runs in Docker, so no local PHP is needed.
+4. Ask in plain language, or use the commands:
+
+| Type this | What the agent does |
+|---|---|
+| `/tour` | A 5-minute review: what the system is, stack health, live real-time proof with measured latency, where things live |
+| `/walkthrough` | One comment through steps S1–S9: live evidence at each step, plus the test that locks it |
+| `/verify` | Runs every suite and reports each one honestly |
+| `/extend-tests` | Shows how the suites grow when the app changes (gaps → scaffold → implement → matrix) |
+| *"Prove the admin gets comments in real time"* | Calls `watch_admin_socket`: posts a probe and catches the frame on the admin socket |
+| *"Which tests protect the Redis step?"* | Calls `explain_step S5`: the code, the guarding tests and their last results |
+
+The agent also reads [CLAUDE.md](CLAUDE.md) on start, so it can answer questions about the code without exploring first.
+
+**With another MCP client** (Cursor, Claude Desktop, …): add the server to that client's MCP config with the
+absolute path to the project:
+
+```json
+{
+  "mcpServers": {
+    "echo-qa": {
+      "command": "docker",
+      "args": ["compose", "--project-directory", "/absolute/path/to/site-pro-comments",
+               "--profile", "mcp", "run", "--rm", "-T", "--no-deps", "mcp"]
+    }
+  }
+}
+```
+
+**Without MCP:** every tool is a plain command, for example `docker compose run --rm tester qa gaps` or
+`docker compose run --rm tester smoke` (see [AGENTS.md](AGENTS.md)).
+
+**Verification status:** the server was driven directly over stdio JSON-RPC (`initialize`, `tools/list`, `tools/call`),
+and its live probe passes:
 ```text
 PROBE OK: "mcp probe 0dccf0" posted (HTTP 201) and arrived on the admin socket 1263 ms after the POST started,
 trace 1f1f1f96bbfd1ee0, relayed to 1 socket(s).
 ```
+The approval flow inside the Claude Code UI itself has not been exercised end to end.
 
 ---
 
@@ -277,6 +348,9 @@ trace 1f1f1f96bbfd1ee0, relayed to 1 socket(s).
   `DEMO_MODE=off` disables the page and the flag.
 * Locked by Regression `DemoCest` and by E2E `DemoModeCest`. The E2E test plays the demo, checks the real admin panel,
   presses Reset, and verifies that the rows are really gone.
+* **Bonus: Pegasus Dodge.** At the bottom of `/demo`, **▲ Играть** opens a branded three.js mini-game
+  (`frontend/web/game/`, also at `/game/`) in a modal over the demo. The auto-poster pauses, and the game is unloaded
+  when the modal closes. It is an easter egg only: no test depends on it, and it is outside the pipeline registry.
 
 ---
 
