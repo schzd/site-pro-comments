@@ -18,3 +18,9 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+
+groups:
+    # Flaky tests, written by `php qa/qa.php record`; skipped by the blocking gate.
+    quarantine: ../qa/quarantine/blackbox.txt
+    # Duration-balanced shards, written by `php qa/qa.php shards`.
+    "qashard_*": ../qa/shards/blackbox/qashard_*

@@ -44,8 +44,7 @@
             "common\\tests\\": ["common/tests/", "common/tests/Support"],
             "backend\\tests\\": ["backend/tests/", "backend/tests/Support"],
             "frontend\\tests\\": ["frontend/tests/", "frontend/tests/Support"],
-            "blackbox\\tests\\": ["blackbox/tests/", "blackbox/tests/Support"],
-            "qa\\": "qa/src/"
+            "blackbox\\tests\\": ["blackbox/tests/", "blackbox/tests/Support"]
         }
     },
     "config": {

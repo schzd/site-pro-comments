@@ -25,3 +25,9 @@ coverage:
         - /mail/*
         - /models/*
         - /widgets/*
+
+groups:
+    # Flaky tests, written by `php qa/qa.php record`; skipped by the blocking gate.
+    quarantine: ../qa/quarantine/common.txt
+    # Duration-balanced shards, written by `php qa/qa.php shards`.
+    "qashard_*": ../qa/shards/common/qashard_*

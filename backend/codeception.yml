@@ -24,3 +24,9 @@ coverage:
         - /controllers/*
         - /models/*
         - /views/*
+
+groups:
+    # Flaky tests, written by `php qa/qa.php record`; skipped by the blocking gate.
+    quarantine: ../qa/quarantine/backend.txt
+    # Duration-balanced shards, written by `php qa/qa.php shards`.
+    "qashard_*": ../qa/shards/backend/qashard_*

@@ -10,6 +10,8 @@ modules:
             browser: chrome
             window_size: 1400x900
             wait: 0
+            # Fresh browser session per test: no cookies or tabs leak between tests.
+            restart: true
             connection_timeout: 30
             request_timeout: 60
             capabilities:

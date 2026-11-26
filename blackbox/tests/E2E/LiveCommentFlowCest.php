@@ -14,6 +14,7 @@ use blackbox\tests\Support\E2ETester;
  * @group e2e
  * @group step-S1
  * @group step-S4
+ * @group step-S7
  * @group step-S8
  * @group step-S9
  */
