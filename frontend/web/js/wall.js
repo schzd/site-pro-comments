@@ -19,7 +19,7 @@
   const total = root.querySelector('[data-total]');
   const moreBtn = root.querySelector('[data-more]');
   const endMark = root.querySelector('[data-end]');
-  const likeUrl = (id) => root.dataset.likeUrl.replace('__ID__', id);
+  const likeUrl = (id) => root.dataset.likeUrl.replace('{id}', id);
 
   const pending = [];      // live arrivals held back while the reader is scrolled down
   const mine = new Set();  // ids this tab posted (already rendered from the POST response)
@@ -96,7 +96,9 @@
     countEl.textContent = Math.max(0, before + (wasLiked ? -1 : 1));
     btn.classList.add('pop');
     setTimeout(() => btn.classList.remove('pop'), 160);
+    btn.dataset.pending = '1'; // observable in-flight state (UI + E2E)
     const res = await Echo.request(likeUrl(id), { method: 'POST' });
+    delete btn.dataset.pending;
     if (res.ok) {
       feed.setLikes(id, res.data.likes, res.data.liked);
     } else {

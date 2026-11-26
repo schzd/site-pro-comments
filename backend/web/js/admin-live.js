@@ -61,9 +61,9 @@
     slot('likes').textContent = c.likes;
     slot('ip').textContent = c.ip || '';
     slot('time').textContent = Echo.utc(c.created_at);
-    slot('edit').href = panel.dataset.editUrl.replace('__ID__', c.id);
+    slot('edit').href = panel.dataset.editUrl.replace('{id}', c.id);
     const del = slot('delete');
-    del.action = panel.dataset.deleteUrl.replace('__ID__', c.id);
+    del.action = panel.dataset.deleteUrl.replace('{id}', c.id);
     const csrfInput = del.querySelector('input[type="hidden"]');
     if (csrf.param) { csrfInput.name = csrf.param; csrfInput.value = csrf.token; }
     return tr;

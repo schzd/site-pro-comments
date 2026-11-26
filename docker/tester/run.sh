@@ -73,6 +73,11 @@ run_suite() {
     esac
 }
 
+if [ "$suite" = "help" ] || [ "$suite" = "-h" ] || [ "$suite" = "--help" ]; then
+    sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'
+    exit 0
+fi
+
 if [ "$suite" = "all" ]; then
     # Gate order: cheapest and most diagnostic first.
     for s in unit smoke regression e2e; do

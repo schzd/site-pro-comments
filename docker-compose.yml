@@ -196,7 +196,7 @@ services:
       E2E_WS_PORT: "8080"
       SELENIUM_HOST: selenium
     entrypoint: ["bash", "docker/tester/run.sh"]
-    command: ["all"]
+    command: ["help"]
     depends_on:
       setup:
         condition: service_completed_successfully

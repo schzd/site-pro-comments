@@ -90,3 +90,4 @@ body { min-height: 100vh; }
   .page { padding-bottom: 190px; }
   .new-pill { top: 64px; }
 }
+.like[data-pending] { opacity: .7; }

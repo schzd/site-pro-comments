@@ -24,7 +24,7 @@ $errors = $form ? $form->getFirstErrors() : [];
      data-wall
      data-create-url="<?= Url::to(['/comment/create']) ?>"
      data-page-url="<?= Url::to(['/comment/page']) ?>"
-     data-like-url="<?= Url::to(['/comment/like', 'id' => '__ID__']) ?>"
+     data-like-url="<?= str_replace('/0/', '/{id}/', Url::to(['/comment/like', 'id' => 0])) ?>"
      data-token-url="<?= Url::to(['/comment/ws-token']) ?>">
 
     <section class="composer" data-composer aria-label="Новый комментарий">

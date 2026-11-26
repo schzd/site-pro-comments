@@ -25,8 +25,18 @@
   const state = {
     playing: false, started: false, inFlight: false, timer: null, cursor: 0,
     posted: 0, relayed: 0, latencies: [],
-    waiting: new Map(), // trace → { t0, id }
+    waiting: new Map(), // trace → { t0, id }       POST answered, frame not yet seen
+    early: new Map(),   // trace → frame received_at  frame seen before the POST answer
   };
+
+  // The relay is often FASTER than the HTTP response: the WS frame can land
+  // before fetch() resolves. Latency is recorded in whichever order they meet.
+  function recordLatency(t0, receivedAt, id) {
+    const e2e = (receivedAt - t0) * 1000;
+    state.latencies.push(e2e);
+    if (state.latencies.length > 200) state.latencies.shift();
+    trace('cli', 'frame #' + id + ' matched  e2e ' + e2e.toFixed(0) + 'ms', 'ok', receivedAt);
+  }
 
   // ---- trace ticker ----------------------------------------------------------
   const clock = (sec) => {
@@ -137,7 +147,12 @@
     if (rt.delivered) {
       pulse('frontend-redis', 'frontend', 'redis');
       trace('srv', 'redis PUBLISH → ' + rt.subscribers + ' subscriber(s)  trace ' + rt.trace.slice(0, 8), rt.subscribers > 0 ? 'ok' : 'warn', rt.published_at);
-      state.waiting.set(rt.trace, { t0: t0, id: c.id });
+      if (state.early.has(rt.trace)) {
+        recordLatency(t0, state.early.get(rt.trace), c.id);
+        state.early.delete(rt.trace);
+      } else {
+        state.waiting.set(rt.trace, { t0: t0, id: c.id });
+      }
     } else {
       trace('srv', 'redis PUBLISH failed — relay unavailable', 'err', rt.published_at);
     }
@@ -175,10 +190,10 @@
       trace('ws', 'relay → ' + f.relay.recipients + ' socket(s)', 'ok', f.relay.relayed_at);
       pulse('redis-ws', 'redis', 'ws').then(() => pulse('ws-admin', 'ws', 'admin')).then(() => adminRow(d));
       if (pending) {
-        const e2e = (f.received_at - pending.t0) * 1000;
-        state.latencies.push(e2e);
-        if (state.latencies.length > 200) state.latencies.shift();
-        trace('cli', 'frame #' + d.id + ' received  e2e ' + e2e.toFixed(0) + 'ms', 'ok', f.received_at);
+        recordLatency(pending.t0, f.received_at, d.id);
+      } else {
+        trace('cli', 'frame #' + d.id + ' arrived before its POST response', null, f.received_at);
+        state.early.set(f.trace, f.received_at);
       }
       renderStats();
     } else if (f.event === 'comment.purged') {
@@ -224,7 +239,7 @@
     if (!res.ok) { trace('cli', 'reset failed → ' + res.status, 'err'); return; }
     trace('srv', 'purged ' + res.data.deleted + ' demo comment(s)  (real comments untouched)', 'ok', res.data.realtime.published_at);
     feed.list.innerHTML = '';
-    state.posted = 0; state.relayed = 0; state.latencies = []; state.waiting.clear();
+    state.posted = 0; state.relayed = 0; state.latencies = []; state.waiting.clear(); state.early.clear();
     ['last', 'avg', 'p95'].forEach((k) => { stat(k).textContent = '—'; });
     renderStats();
   });

@@ -21,8 +21,8 @@ $page = $provider->pagination->getPage();
          data-filter="<?= Html::encode($filter) ?>"
          data-page="<?= $page ?>"
          data-token-url="<?= Url::to(['/comment/ws-token']) ?>"
-         data-edit-url="<?= Url::to(['/comment/update', 'id' => '__ID__']) ?>"
-         data-delete-url="<?= Url::to(['/comment/delete', 'id' => '__ID__']) ?>">
+         data-edit-url="<?= str_replace('/0/', '/{id}/', Url::to(['/comment/update', 'id' => 0])) ?>"
+         data-delete-url="<?= str_replace('/0/', '/{id}/', Url::to(['/comment/delete', 'id' => 0])) ?>">
 
     <div class="cp-head">
         <div>

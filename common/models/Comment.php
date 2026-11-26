@@ -82,11 +82,11 @@ class Comment extends ActiveRecord
 
     public function attributeLabels(): array
     {
-        return [
-            'author_name' => 'Name',
-            'body' => 'Comment',
-            'status' => 'Status',
-        ];
+        // The public wall speaks Russian, the admin panel English; labels are
+        // interpolated into validation messages, so they must match.
+        return str_starts_with((string) Yii::$app->language, 'ru')
+            ? ['author_name' => 'Имя', 'body' => 'Комментарий', 'status' => 'Статус']
+            : ['author_name' => 'Name', 'body' => 'Comment', 'status' => 'Status'];
     }
 
     /**

@@ -23,6 +23,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Component `display` rules (.pill, .cp-banner, .new-pill…) must never win over
+   the hidden attribute — that bug showed a DEMO pill on every admin row (REG-002). */
+[hidden] { display: none !important; }
+
 html, body {
   margin: 0;
   background: var(--bg);
