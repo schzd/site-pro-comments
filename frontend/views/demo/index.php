@@ -100,5 +100,24 @@ $edges = [
         </div>
     </section>
 
+    <section class="demo-bonus" aria-label="Bonus">
+        <div class="demo-bonus-ship" aria-hidden="true">▲</div>
+        <div class="demo-bonus-text">
+            <p class="mono demo-kicker">bonus · easter egg</p>
+            <h2>Pegasus Dodge</h2>
+            <p class="muted">Мини-игра на three.js в том же фирменном стиле: проведи «Пегас» сквозь поле астероидов.
+                Стрелки или перетаскивание, <span class="mono">P</span> — пауза.</p>
+        </div>
+        <div class="demo-bonus-actions">
+            <button type="button" class="btn btn-lime" data-game-open>▲ Играть</button>
+            <a class="btn" href="/game/" target="_blank" rel="noopener">в новой вкладке ↗</a>
+        </div>
+    </section>
+
+    <dialog class="game-dialog" data-game-dialog aria-label="Pegasus Dodge">
+        <button type="button" class="btn btn-sm game-close" data-game-close>✕ Закрыть</button>
+        <iframe title="Pegasus Dodge" data-game-frame allow="fullscreen"></iframe>
+    </dialog>
+
     <template id="card-template"><?= $this->render('/comment/_card', ['data' => null, 'liked' => false]) ?></template>
 </div>

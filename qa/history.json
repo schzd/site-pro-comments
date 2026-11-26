@@ -209,15 +209,16 @@
             "flaky": false
         },
         "blackbox\\tests\\E2E\\DemoModeCest::demoPostsRealCommentsAndResetCleansUp": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 11.78,
-            "trail": "PPPP",
+            "avg_time": 10.87,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
                 "259a04c+c8d8bc": "P",
-                "ddd2cce+c1dc7e": "P"
+                "ddd2cce+c1dc7e": "P",
+                "063a983+982811": "P"
             },
             "suite": "e2e",
             "file": "blackbox/tests/E2E/DemoModeCest.php",
@@ -1519,15 +1520,16 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoFlagMarksCommentsAsDemo": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.227,
-            "trail": "PPPP",
+            "avg_time": 0.222,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
                 "259a04c+c8d8bc": "P",
-                "ddd2cce+c1dc7e": "P"
+                "ddd2cce+c1dc7e": "P",
+                "063a983+982811": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1535,15 +1537,16 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::demoPageRendersPipelineAndControls": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.824,
-            "trail": "PPPP",
+            "avg_time": 0.799,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
                 "259a04c+c8d8bc": "P",
-                "ddd2cce+c1dc7e": "P"
+                "ddd2cce+c1dc7e": "P",
+                "063a983+982811": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1551,15 +1554,16 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetPurgesOnlyDemoCommentsAndAnnouncesIt": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.053,
-            "trail": "PPPP",
+            "avg_time": 0.052,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
                 "259a04c+c8d8bc": "P",
-                "ddd2cce+c1dc7e": "P"
+                "ddd2cce+c1dc7e": "P",
+                "063a983+982811": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1567,15 +1571,16 @@
             "flaky": false
         },
         "frontend\\tests\\Regression\\DemoCest::resetRequiresPost": {
-            "runs": 4,
+            "runs": 5,
             "fails": 0,
-            "avg_time": 0.062,
-            "trail": "PPPP",
+            "avg_time": 0.058,
+            "trail": "PPPPP",
             "revs": {
                 "fe624e4+c1bf6e": "P",
                 "fe624e4+1cff21": "P",
                 "259a04c+c8d8bc": "P",
-                "ddd2cce+c1dc7e": "P"
+                "ddd2cce+c1dc7e": "P",
+                "063a983+982811": "P"
             },
             "suite": "regression",
             "file": "frontend/tests/Regression/DemoCest.php",
@@ -1855,5 +1860,5 @@
             "flaky": false
         }
     },
-    "updated_at": "2026-11-26T13:42:46+00:00"
+    "updated_at": "2026-11-26T13:49:07+00:00"
 }

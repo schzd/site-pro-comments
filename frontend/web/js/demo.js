@@ -247,3 +247,23 @@
   // QA hook: lets the E2E suite observe the demo without scraping animations.
   window.echoDemo = { state: state, play: () => setPlaying(true), pause: () => setPlaying(false) };
 })();
+
+/* Bonus: Pegasus Dodge in a modal over the demo. The iframe is loaded on open
+   and unloaded on close, so the game's render loop never runs in the background. */
+(function () {
+  'use strict';
+  const dialog = document.querySelector('[data-game-dialog]');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  const frame = dialog.querySelector('[data-game-frame]');
+  const close = () => { dialog.close(); };
+
+  document.querySelector('[data-game-open]').addEventListener('click', () => {
+    if (window.echoDemo && window.echoDemo.state.playing) window.echoDemo.pause();
+    frame.src = '/game/';
+    dialog.showModal();
+    frame.addEventListener('load', () => frame.focus(), { once: true });
+  });
+  dialog.querySelector('[data-game-close]').addEventListener('click', close);
+  dialog.addEventListener('click', (ev) => { if (ev.target === dialog) close(); });
+  dialog.addEventListener('close', () => { frame.src = 'about:blank'; });
+})();
