@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Pegasus Dodge</title>
+<meta name="description" content="Fly the Pegasus through an asteroid field. A three.js browser game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121310;
+    --lime: #dcff48;
+    --lime-dim: rgba(220, 255, 72, 0.55);
+    --lime-faint: rgba(220, 255, 72, 0.14);
+    --ink: #eef0e6;
+    --ink-dim: rgba(238, 240, 230, 0.62);
+    --danger: #ff5a3c;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; height: 100%; overflow: hidden;
+    background: var(--bg); color: var(--ink);
+    font-family: "Chakra Petch", system-ui, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none; -webkit-user-select: none;
+  }
+  #stage { position: fixed; inset: 0; }
+  #stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+  /* vignette + scanline sheen over the canvas */
+  .vignette {
+    position: fixed; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px);
+  }
+  .flash { position: fixed; inset: 0; pointer-events: none; background: #fff; opacity: 0; }
+
+  /* HUD */
+  .hud {
+    position: fixed; left: 0; right: 0; top: 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: max(14px, env(safe-area-inset-top)) 16px 0;
+    pointer-events: none; opacity: 0; transition: opacity .3s;
+  }
+  .hud.on { opacity: 1; }
+  .readout { line-height: 1; }
+  .readout .k { font-size: 11px; letter-spacing: .18em; color: var(--lime-dim); font-weight: 600; }
+  .readout .v { font-size: clamp(26px, 6vw, 40px); font-weight: 700; color: var(--lime);
+    font-variant-numeric: tabular-nums; text-shadow: 0 0 18px rgba(220,255,72,.35); margin-top: 4px; }
+  .readout.right { text-align: right; }
+  .readout.right .v { color: var(--ink); text-shadow: none; font-size: clamp(18px, 4.4vw, 26px); }
+  .speed { position: absolute; left: 50%; transform: translateX(-50%); top: max(14px, env(safe-area-inset-top)); text-align: center; }
+  .speed .bar { width: min(34vw, 180px); height: 4px; background: var(--lime-faint); margin-top: 8px; overflow: hidden; }
+  .speed .bar i { display: block; height: 100%; width: 0; background: var(--lime); box-shadow: 0 0 10px var(--lime); }
+  .speed .v { font-size: 15px; color: var(--ink); text-shadow: none; }
+
+  .popups { position: fixed; inset: 0; pointer-events: none; }
+  .pop {
+    position: absolute; transform: translate(-50%, -50%); font-weight: 700; font-size: 15px;
+    letter-spacing: .12em; color: var(--lime); text-shadow: 0 0 12px rgba(220,255,72,.6);
+    animation: pop 0.9s ease-out forwards; white-space: nowrap;
+  }
+  @keyframes pop { from { opacity: 1; margin-top: 0; } to { opacity: 0; margin-top: -46px; } }
+
+  /* Screens */
+  .screen {
+    position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 24px 16px; text-align: center;
+    background: radial-gradient(ellipse at center, rgba(18,19,16,.35), rgba(18,19,16,.85));
+    transition: opacity .35s; opacity: 0; pointer-events: none;
+  }
+  .screen.on { opacity: 1; pointer-events: auto; }
+  .tag { font-size: 12px; letter-spacing: .32em; color: var(--lime-dim); font-weight: 600; }
+  h1 {
+    margin: 10px 0 6px; font-size: clamp(44px, 12vw, 96px); line-height: .9; font-weight: 700;
+    letter-spacing: .02em; color: var(--ink);
+  }
+  h1 em { font-style: normal; color: var(--lime); text-shadow: 0 0 30px rgba(220,255,72,.35); }
+  .sub { color: var(--ink-dim); font-size: clamp(14px, 3.6vw, 17px); max-width: 30em; margin: 6px 0 26px; }
+  .btn {
+    font: inherit; font-weight: 700; font-size: 17px; letter-spacing: .22em;
+    color: var(--bg); background: var(--lime); border: 0; padding: 15px 34px 15px 38px; cursor: pointer;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    transition: transform .12s, filter .12s;
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  .btn[disabled] { opacity: .45; cursor: progress; }
+  .keys { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; margin-top: 26px; color: var(--ink-dim); font-size: 13px; }
+  .keys b { color: var(--ink); font-weight: 600; border: 1px solid rgba(238,240,230,.25); padding: 2px 7px; margin-right: 6px; font-size: 12px; }
+  .status { margin-top: 18px; font-size: 12px; letter-spacing: .14em; color: var(--lime-dim); min-height: 1em; }
+  .status.warn { color: var(--danger); }
+  .best-line { margin-top: 14px; font-size: 13px; letter-spacing: .16em; color: var(--ink-dim); }
+  .best-line span { color: var(--lime); font-weight: 700; }
+
+  .over h1 { font-size: clamp(38px, 10vw, 80px); }
+  .over h1 em { color: var(--danger); text-shadow: 0 0 30px rgba(255,90,60,.35); }
+  .final { display: flex; gap: clamp(22px, 8vw, 60px); margin: 10px 0 28px; }
+  .final .readout .v { font-size: clamp(34px, 9vw, 56px); }
+  .newbest { color: var(--lime); letter-spacing: .26em; font-size: 13px; font-weight: 700; min-height: 1.2em; margin-bottom: 8px; }
+
+  .corner {
+    position: fixed; right: 16px; bottom: max(14px, env(safe-area-inset-bottom));
+    display: flex; gap: 8px;
+  }
+  .icon-btn {
+    font: inherit; font-size: 11px; letter-spacing: .16em; font-weight: 600;
+    background: rgba(18,19,16,.6); color: var(--ink-dim); border: 1px solid rgba(238,240,230,.2);
+    padding: 7px 10px; cursor: pointer;
+  }
+  .icon-btn:hover { color: var(--lime); border-color: var(--lime-dim); }
+  .hint { position: fixed; left: 50%; bottom: calc(max(14px, env(safe-area-inset-bottom)) + 44px); transform: translateX(-50%);
+    font-size: 12px; letter-spacing: .2em; color: var(--ink-dim); pointer-events: none; transition: opacity .6s; opacity: 0; white-space: nowrap; }
+  .hint.on { opacity: 1; }
+  .paused-tag { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 28px; font-weight: 700;
+    letter-spacing: .3em; color: var(--lime); display: none; pointer-events: none; }
+  .paused-tag.on { display: block; }
+  @media (max-width: 520px) { .keys .kb { display: none; } }
+  @media (hover: none) { .keys .kb { display: none; } }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div class="vignette"></div>
+<div class="flash" id="flash"></div>
+
+<div class="hud" id="hud">
+  <div class="readout"><div class="k">SCORE</div><div class="v" id="score">0</div></div>
+  <div class="readout speed"><div class="k">VELOCITY</div><div class="v" id="speedv">1.0×</div><div class="bar"><i id="speedbar"></i></div></div>
+  <div class="readout right"><div class="k">BEST</div><div class="v" id="besthud">0</div></div>
+</div>
+<div class="popups" id="popups"></div>
+<div class="paused-tag" id="pausedTag">PAUSED</div>
+<div class="hint" id="hint">DRAG OR USE ARROWS TO STEER</div>
+
+<section class="screen on" id="title" aria-label="Title screen">
+  <div class="tag">VIDMAGE LAB // FLIGHT TEST 01</div>
+  <h1>PEGASUS<br><em>DODGE</em></h1>
+  <p class="sub">Thread the gunship through a live asteroid field. The field gets faster the longer you survive. Skim a rock for a near-miss bonus.</p>
+  <button class="btn" id="startBtn" disabled>LOADING…</button>
+  <div class="best-line">BEST <span id="bestTitle">0</span></div>
+  <div class="keys">
+    <div class="kb"><b>WASD</b>/<b>←↑↓→</b> steer</div>
+    <div><b>DRAG</b> steer (touch / mouse)</div>
+    <div class="kb"><b>P</b> pause</div>
+  </div>
+  <div class="status" id="status">LOADING PEGASUS MODEL…</div>
+</section>
+
+<section class="screen over" id="over" aria-label="Game over">
+  <div class="tag">FLIGHT TERMINATED</div>
+  <h1>HULL <em>BREACH</em></h1>
+  <div class="final">
+    <div class="readout"><div class="k">SCORE</div><div class="v" id="finalScore">0</div></div>
+    <div class="readout"><div class="k">BEST</div><div class="v" id="finalBest" style="color:var(--ink);text-shadow:none">0</div></div>
+  </div>
+  <div class="newbest" id="newBest"></div>
+  <button class="btn" id="restartBtn">RELAUNCH</button>
+  <div class="keys"><div class="kb"><b>ENTER</b> / <b>SPACE</b> relaunch</div></div>
+</section>
+
+<div class="corner">
+  <button class="icon-btn" id="muteBtn" aria-pressed="false">SOUND ON</button>
+</div>
+
+<!-- Pegasus model as base64, so this page works from file:// as well as a server -->
+<script src="pegasus-model.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+// ---------- config ----------
+const LIME = 0xdcff48, BG = 0x121310;
+const BOUNDS = { x: 6.2, yMin: -2.6, yMax: 3.4 };     // where the ship may fly (x narrows on portrait screens)
+const SPAWN_Z = -230, DESPAWN_Z = 14;
+const BASE_SPEED = 42, MAX_SPEED = 150, RAMP = 0.9;  // units/s, speed gain per second
+const SHIP_LEN = 3.0;
+const params = new URLSearchParams(location.search);
+
+// Seeded RNG: ?seed=123 replays the same field (handy for reproducing a bug)
+let seed = (parseInt(params.get('seed'), 10) || (Date.now() & 0xffffffff)) >>> 0;
+const initialSeed = seed;
+function rand() { seed = (seed + 0x6D2B79F5) >>> 0; let t = seed; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
+const rr = (a, b) => a + (b - a) * rand();
+
+// ---------- DOM ----------
+const $ = (id) => document.getElementById(id);
+const ui = {
+  hud: $('hud'), score: $('score'), best: $('besthud'), speedv: $('speedv'), speedbar: $('speedbar'),
+  title: $('title'), over: $('over'), start: $('startBtn'), restart: $('restartBtn'), status: $('status'),
+  bestTitle: $('bestTitle'), finalScore: $('finalScore'), finalBest: $('finalBest'), newBest: $('newBest'),
+  popups: $('popups'), flash: $('flash'), mute: $('muteBtn'), hint: $('hint'), paused: $('pausedTag'),
+};
+
+// ---------- best score (localStorage may be blocked; game still works) ----------
+const BEST_KEY = 'pegasus-dodge-best';
+function loadBest() { try { return parseInt(localStorage.getItem(BEST_KEY), 10) || 0; } catch { return 0; } }
+function saveBest(v) { try { localStorage.setItem(BEST_KEY, String(v)); } catch {} }
+let best = loadBest();
+const fmt = (n) => Math.floor(n).toLocaleString('en-US');
+function showBest() { ui.best.textContent = fmt(best); ui.bestTitle.textContent = fmt(best); }
+showBest();
+
+// ---------- renderer / scene ----------
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+$('stage').appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(BG);
+scene.fog = new THREE.Fog(BG, 120, 225);
+
+const camera = new THREE.PerspectiveCamera(62, 1, 0.1, 600);
+const CAM_BASE = new THREE.Vector3(0, 3.8, 8.6);
+camera.position.copy(CAM_BASE);
+
+scene.add(new THREE.HemisphereLight(0xcfe6ff, 0x1a1c14, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 2.4); key.position.set(4, 10, 6); scene.add(key);
+const rim = new THREE.DirectionalLight(LIME, 1.6); rim.position.set(-6, 3, -10); scene.add(rim);
+const under = new THREE.DirectionalLight(0x6fb6ff, 0.6); under.position.set(0, -6, 4); scene.add(under);
+
+// ---------- starfield (points that stream toward the camera) ----------
+const STAR_N = 1500;
+const starGeo = new THREE.BufferGeometry();
+const starPos = new Float32Array(STAR_N * 3);
+for (let i = 0; i < STAR_N; i++) {
+  const a = Math.random() * Math.PI * 2, r = 18 + Math.pow(Math.random(), 0.7) * 150;
+  starPos[i*3] = Math.cos(a) * r; starPos[i*3+1] = Math.sin(a) * r * 0.7; starPos[i*3+2] = -Math.random() * 400;
+}
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xe8eadc, size: 0.45, sizeAttenuation: true, fog: false, transparent: true, opacity: 0.85 }));
+scene.add(stars);
+
+// ---------- speed lines (streaks whose length grows with speed) ----------
+const LINE_N = 140;
+const lineGeo = new THREE.BufferGeometry();
+const linePos = new Float32Array(LINE_N * 6);
+const lineSeed = [];
+for (let i = 0; i < LINE_N; i++) {
+  const a = Math.random() * Math.PI * 2, r = 5 + Math.random() * 16;
+  lineSeed.push({ x: Math.cos(a) * r, y: Math.sin(a) * r * 0.75 + 1, z: -Math.random() * 160 });
+}
+lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+const lineMat = new THREE.LineBasicMaterial({ color: LIME, transparent: true, opacity: 0.0, fog: false, blending: THREE.AdditiveBlending, depthWrite: false });
+const speedLines = new THREE.LineSegments(lineGeo, lineMat);
+scene.add(speedLines);
+
+// ---------- asteroids ----------
+function makeRockGeo(detail, lumpiness) {
+  const g = new THREE.IcosahedronGeometry(1, detail);
+  const p = g.attributes.position, v = new THREE.Vector3();
+  const k1 = new THREE.Vector3(rr(-1,1), rr(-1,1), rr(-1,1)).normalize();
+  const k2 = new THREE.Vector3(rr(-1,1), rr(-1,1), rr(-1,1)).normalize();
+  // merge identical vertices first so the surface stays closed when displaced
+  const keyOf = (x, y, z) => `${x.toFixed(4)},${y.toFixed(4)},${z.toFixed(4)}`;
+  const disp = new Map();
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i);
+    const kk = keyOf(v.x, v.y, v.z);
+    let s = disp.get(kk);
+    if (s === undefined) {
+      s = 1 + lumpiness * (0.55 * Math.sin(v.dot(k1) * 3.1 + rr(0, 6)) + 0.35 * Math.sin(v.dot(k2) * 5.3) + rr(-0.35, 0.35));
+      disp.set(kk, s);
+    }
+    v.multiplyScalar(s);
+    p.setXYZ(i, v.x, v.y * 0.82, v.z);
+  }
+  g.computeVertexNormals();
+  return g;
+}
+const rockGeos = Array.from({ length: 7 }, (_, i) => makeRockGeo(i % 2 ? 1 : 2, rr(0.18, 0.3)));
+const rockMats = [
+  new THREE.MeshStandardMaterial({ color: 0x5b554c, roughness: 0.95, metalness: 0.05, flatShading: true }),
+  new THREE.MeshStandardMaterial({ color: 0x46433d, roughness: 0.9, metalness: 0.1, flatShading: true }),
+  new THREE.MeshStandardMaterial({ color: 0x6a5e4e, roughness: 1.0, metalness: 0.0, flatShading: true }),
+];
+const POOL = 90;
+const rocks = [];
+for (let i = 0; i < POOL; i++) {
+  const m = new THREE.Mesh(rockGeos[i % rockGeos.length], rockMats[i % rockMats.length]);
+  m.visible = false; scene.add(m);
+  rocks.push({ mesh: m, r: 1, spin: new THREE.Vector3(), alive: false, passed: false, drift: new THREE.Vector2() });
+}
+
+// ---------- ship ----------
+const ship = new THREE.Group();      // moves + banks
+const shipBody = new THREE.Group();  // holds the model, fixed orientation
+ship.add(shipBody);
+scene.add(ship);
+
+// engine glow sprites
+function glowTexture() {
+  const c = document.createElement('canvas'); c.width = c.height = 64;
+  const g = c.getContext('2d'); const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grd.addColorStop(0, 'rgba(255,255,255,1)'); grd.addColorStop(0.25, 'rgba(220,255,72,0.9)');
+  grd.addColorStop(1, 'rgba(220,255,72,0)'); g.fillStyle = grd; g.fillRect(0, 0, 64, 64);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const glowTex = glowTexture();
+const engines = [];
+function addEngine(x, y, z, s) {
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true }));
+  sp.position.set(x, y, z); sp.scale.setScalar(s); sp.userData.base = s; ship.add(sp); engines.push(sp);
+}
+const engineLight = new THREE.PointLight(LIME, 4, 6, 2); engineLight.position.set(0, 0.3, 1.8); ship.add(engineLight);
+
+// collision: spheres in ship space (body + both wing pods), tuned to the model's footprint
+const hitSpheres = [
+  { p: new THREE.Vector3(0, 0.15, -0.6), r: 0.55 },
+  { p: new THREE.Vector3(0, 0.2, 0.5), r: 0.6 },
+  { p: new THREE.Vector3(-0.95, 0.1, 0.1), r: 0.45 },
+  { p: new THREE.Vector3(0.95, 0.1, 0.1), r: 0.45 },
+];
+
+let modelSource = 'pending';
+function buildStandIn() {
+  // Visible stand-in used only when the real model can't load (status line says so).
+  const mat = new THREE.MeshStandardMaterial({ color: 0xb9c2c6, metalness: 0.5, roughness: 0.45, flatShading: true });
+  const dark = new THREE.MeshStandardMaterial({ color: 0x3a4044, metalness: 0.6, roughness: 0.5 });
+  const g = new THREE.Group();
+  const hull = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.45, 2.6), mat); g.add(hull);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.9, 4), mat); nose.rotation.x = -Math.PI / 2; nose.rotation.y = Math.PI / 4; nose.position.z = -1.7; g.add(nose);
+  for (const sx of [-1, 1]) for (const sz of [-0.5, 0.6]) {
+    const fan = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.14, 16), mat); fan.position.set(sx * 1.05, 0, sz); g.add(fan);
+    const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.16, 16), dark); hub.position.copy(fan.position); g.add(hub);
+  }
+  for (const sx of [-0.35, 0.35]) { const e = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.24, 1.2, 12), dark); e.rotation.x = Math.PI / 2; e.position.set(sx, 0.35, 0.7); g.add(e); }
+  return g;
+}
+
+function placeModel(root) {
+  // The Tripo model is exported Y-up with its nose toward +Z; turn it so the nose points into the screen (-Z).
+  root.rotation.y = Math.PI;
+  const box = new THREE.Box3().setFromObject(root);
+  const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+  const s = SHIP_LEN / Math.max(size.x, size.z);
+  root.scale.setScalar(s);
+  root.position.set(-center.x * s, -center.y * s, -center.z * s);
+  root.traverse((o) => { if (o.isMesh) { o.frustumCulled = false; if (o.material) { o.material.side = THREE.FrontSide; } } });
+  shipBody.add(root);
+  const half = (size.y * s) / 2;
+  addEngine(-0.42, half * 0.6, 1.55, 0.7); addEngine(0.42, half * 0.6, 1.55, 0.7);
+}
+
+async function loadShip() {
+  const b64 = window.PEGASUS_GLB_B64;
+  if (!b64) throw new Error('pegasus-model.js not found next to index.html');
+  const bin = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)).buffer;
+  const draco = new DRACOLoader().setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/libs/draco/gltf/');
+  const loader = new GLTFLoader().setDRACOLoader(draco);
+  const gltf = await new Promise((res, rej) => loader.parse(bin, './', res, rej));
+  placeModel(gltf.scene);
+}
+
+// ---------- explosion particles ----------
+const BURST_N = 220;
+const burstGeo = new THREE.BufferGeometry();
+const burstPos = new Float32Array(BURST_N * 3), burstVel = new Float32Array(BURST_N * 3);
+burstGeo.setAttribute('position', new THREE.BufferAttribute(burstPos, 3));
+const burstMat = new THREE.PointsMaterial({ color: 0xffc46b, size: 0.28, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false });
+const burst = new THREE.Points(burstGeo, burstMat); burst.frustumCulled = false; scene.add(burst);
+let burstT = 0;
+function explode(at) {
+  for (let i = 0; i < BURST_N; i++) {
+    burstPos[i*3] = at.x; burstPos[i*3+1] = at.y; burstPos[i*3+2] = at.z;
+    const v = new THREE.Vector3(Math.random() - .5, Math.random() - .5, Math.random() - .5).normalize().multiplyScalar(3 + Math.random() * 11);
+    burstVel[i*3] = v.x; burstVel[i*3+1] = v.y; burstVel[i*3+2] = v.z + 6;
+  }
+  burstGeo.attributes.position.needsUpdate = true; burstT = 1.4; burstMat.opacity = 1;
+}
+
+// ---------- audio (tiny WebAudio synth, starts on first user gesture) ----------
+let actx = null, master = null, hum = null, humGain = null, muted = false;
+try { muted = localStorage.getItem('pegasus-dodge-muted') === '1'; } catch {}
+function setMuteLabel() { ui.mute.textContent = muted ? 'SOUND OFF' : 'SOUND ON'; ui.mute.setAttribute('aria-pressed', String(muted)); }
+setMuteLabel();
+function audioInit() {
+  if (actx) { if (actx.state === 'suspended') actx.resume(); return; }
+  try {
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+    master = actx.createGain(); master.gain.value = muted ? 0 : 0.5; master.connect(actx.destination);
+    hum = actx.createOscillator(); hum.type = 'sawtooth'; hum.frequency.value = 55;
+    const lp = actx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 260;
+    humGain = actx.createGain(); humGain.gain.value = 0;
+    hum.connect(lp); lp.connect(humGain); humGain.connect(master); hum.start();
+  } catch { actx = null; }
+}
+function blip(freq, dur, type = 'square', vol = 0.12) {
+  if (!actx) return;
+  const o = actx.createOscillator(), g = actx.createGain(); o.type = type;
+  o.frequency.setValueAtTime(freq, actx.currentTime); o.frequency.exponentialRampToValueAtTime(freq * 2, actx.currentTime + dur);
+  g.gain.setValueAtTime(vol, actx.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + dur);
+  o.connect(g); g.connect(master); o.start(); o.stop(actx.currentTime + dur);
+}
+function boom() {
+  if (!actx) return;
+  const len = actx.sampleRate * 0.9, buf = actx.createBuffer(1, len, actx.sampleRate), d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.2);
+  const src = actx.createBufferSource(); src.buffer = buf;
+  const lp = actx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900;
+  const g = actx.createGain(); g.gain.value = 0.9; src.connect(lp); lp.connect(g); g.connect(master); src.start();
+}
+ui.mute.addEventListener('click', () => {
+  muted = !muted; setMuteLabel(); try { localStorage.setItem('pegasus-dodge-muted', muted ? '1' : '0'); } catch {}
+  if (master) master.gain.value = muted ? 0 : 0.5;
+  ui.mute.blur();
+});
+
+// ---------- input ----------
+const keys = new Set();
+const drag = { active: false, id: null, lastX: 0, lastY: 0 };
+const target = new THREE.Vector2(0, 0);   // where the ship wants to be
+addEventListener('keydown', (e) => {
+  const k = e.key.toLowerCase();
+  if (['arrowleft','arrowright','arrowup','arrowdown',' '].includes(k)) e.preventDefault();
+  keys.add(k);
+  if (state === 'over' && (k === 'enter' || k === ' ') && overAt + 450 < performance.now()) startGame();
+  else if (state === 'title' && (k === 'enter' || k === ' ') && !ui.start.disabled) startGame();
+  else if (k === 'p' && (state === 'play' || state === 'paused')) togglePause();
+});
+addEventListener('keyup', (e) => keys.delete(e.key.toLowerCase()));
+addEventListener('blur', () => { keys.clear(); if (state === 'play') togglePause(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden && state === 'play') togglePause(); });
+
+const cv = renderer.domElement;
+cv.addEventListener('pointerdown', (e) => {
+  if (state !== 'play') return;
+  drag.active = true; drag.id = e.pointerId; drag.lastX = e.clientX; drag.lastY = e.clientY;
+  cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointermove', (e) => {
+  if (!drag.active || e.pointerId !== drag.id) return;
+  // relative drag: the finger never has to cover the ship
+  const k = 15 / Math.max(320, Math.min(innerWidth, 900));
+  target.x += (e.clientX - drag.lastX) * k * 1.15;
+  target.y -= (e.clientY - drag.lastY) * k;
+  drag.lastX = e.clientX; drag.lastY = e.clientY;
+});
+const endDrag = (e) => { if (e.pointerId === drag.id) drag.active = false; };
+cv.addEventListener('pointerup', endDrag); cv.addEventListener('pointercancel', endDrag);
+
+// ---------- game state ----------
+let state = 'loading';   // loading | title | play | paused | over
+let speed = BASE_SPEED, score = 0, elapsed = 0, spawnAcc = 0, overAt = 0, shake = 0, nearMisses = 0;
+const vel = new THREE.Vector2();
+
+function resetField() {
+  for (const r of rocks) { r.alive = false; r.mesh.visible = false; }
+  ship.position.set(0, 0, 0); ship.rotation.set(0, 0, 0); ship.visible = true;
+  target.set(0, 0); vel.set(0, 0);
+  speed = BASE_SPEED; score = 0; elapsed = 0; spawnAcc = 0; nearMisses = 0;
+}
+
+function spawnRock(zOverride) {
+  const r = rocks.find((x) => !x.alive); if (!r) return;
+  const big = rand() < 0.14;
+  r.r = big ? rr(2.2, 3.4) : rr(0.6, 1.5);
+  // aim 22% → 50% of rocks (ramps with time) into the flight box around the ship so dodging is required
+  const aimed = rand() < Math.min(0.5, 0.22 + elapsed * 0.012);
+  const x = aimed ? rr(-BOUNDS.x, BOUNDS.x) + ship.position.x * 0.3 : rr(-BOUNDS.x * 2.4, BOUNDS.x * 2.4);
+  const y = aimed ? rr(BOUNDS.yMin, BOUNDS.yMax) : rr(BOUNDS.yMin - 6, BOUNDS.yMax + 6);
+  r.mesh.position.set(x, y, zOverride ?? SPAWN_Z + rr(-20, 0));
+  r.mesh.scale.setScalar(r.r);
+  r.mesh.rotation.set(rr(0, 6), rr(0, 6), rr(0, 6));
+  r.spin.set(rr(-1.2, 1.2), rr(-1.2, 1.2), rr(-1.2, 1.2));
+  r.drift.set(rr(-1.2, 1.2), rr(-0.6, 0.6));
+  r.alive = true; r.passed = false; r.mesh.visible = true;
+}
+
+function startGame() {
+  audioInit();
+  resetField();
+  // pre-fill the field far out so there is no empty first second
+  for (let z = SPAWN_Z; z < -140; z += 9) spawnRock(z);
+  state = 'play';
+  ui.title.classList.remove('on'); ui.over.classList.remove('on');
+  ui.hud.classList.add('on'); ui.paused.classList.remove('on');
+  ui.hint.classList.add('on'); setTimeout(() => ui.hint.classList.remove('on'), 2800);
+  if (humGain) humGain.gain.setTargetAtTime(0.06, actx.currentTime, 0.3);
+  window.dispatchEvent(new CustomEvent('pegasus:start'));
+}
+
+function togglePause() {
+  if (state === 'play') { state = 'paused'; ui.paused.classList.add('on'); if (humGain) humGain.gain.setTargetAtTime(0, actx.currentTime, 0.1); }
+  else if (state === 'paused') { state = 'play'; ui.paused.classList.remove('on'); clock.getDelta(); if (humGain) humGain.gain.setTargetAtTime(0.06, actx.currentTime, 0.2); }
+}
+
+function gameOver(hitPoint) {
+  state = 'over'; overAt = performance.now();
+  ship.visible = false; explode(hitPoint); shake = 1; boom();
+  ui.flash.style.transition = 'none'; ui.flash.style.opacity = '0.55';
+  requestAnimationFrame(() => { ui.flash.style.transition = 'opacity .5s'; ui.flash.style.opacity = '0'; });
+  if (humGain) humGain.gain.setTargetAtTime(0, actx.currentTime, 0.15);
+  const final = Math.floor(score), isBest = final > best;
+  if (isBest) { best = final; saveBest(best); }
+  showBest();
+  ui.finalScore.textContent = fmt(final); ui.finalBest.textContent = fmt(best);
+  ui.newBest.textContent = isBest && final > 0 ? 'NEW BEST' : '';
+  ui.hud.classList.remove('on');
+  setTimeout(() => { if (state === 'over') { ui.over.classList.add('on'); ui.restart.focus({ preventScroll: true }); } }, 750);
+  window.dispatchEvent(new CustomEvent('pegasus:over', { detail: { score: final, best, nearMisses } }));
+}
+
+function popup(text, worldPos) {
+  const v = worldPos.clone().project(camera);
+  const el = document.createElement('div'); el.className = 'pop'; el.textContent = text;
+  el.style.left = ((v.x + 1) / 2 * innerWidth) + 'px'; el.style.top = ((1 - v.y) / 2 * innerHeight) + 'px';
+  ui.popups.appendChild(el); setTimeout(() => el.remove(), 950);
+}
+
+ui.start.addEventListener('click', startGame);
+ui.restart.addEventListener('click', startGame);
+
+// ---------- resize ----------
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  // narrow (portrait) screens: pull the camera back so the full flight box stays visible
+  const portrait = Math.max(0, 1 - camera.aspect);
+  CAM_BASE.set(0, 3.8 + portrait * 3, 8.6 + portrait * 9);
+  camera.updateProjectionMatrix();
+  // keep the whole flight lane on screen: half-width visible at the ship plane, minus the ship's half-span
+  const halfW = Math.tan(THREE.MathUtils.degToRad(30)) * CAM_BASE.z * camera.aspect;
+  BOUNDS.x = THREE.MathUtils.clamp(halfW * 1.25 - 1.3, 2.4, 6.2);
+}
+addEventListener('resize', resize); resize();
+
+// ---------- loop ----------
+const clock = new THREE.Clock();
+const tmpV = new THREE.Vector3(), tmpW = new THREE.Vector3();
+let fov = 62;
+
+function update(dt) {
+  const t = clock.elapsedTime;
+  const playing = state === 'play';
+  const cruise = playing ? speed : (state === 'over' ? speed * 0.25 : 26);
+
+  if (playing) {
+    elapsed += dt;
+    speed = Math.min(MAX_SPEED, BASE_SPEED + elapsed * RAMP * (1 + elapsed / 90));
+    score += dt * speed * 0.5;
+
+    // keyboard steering moves the target point
+    const ax = (keys.has('arrowright') || keys.has('d') ? 1 : 0) - (keys.has('arrowleft') || keys.has('a') ? 1 : 0);
+    const ay = (keys.has('arrowup') || keys.has('w') ? 1 : 0) - (keys.has('arrowdown') || keys.has('s') ? 1 : 0);
+    target.x += ax * 13 * dt; target.y += ay * 10 * dt;
+    if (!ax && !drag.active) target.x += (ship.position.x - target.x) * Math.min(1, dt * 6);
+    if (!ay && !drag.active) target.y += (ship.position.y - target.y) * Math.min(1, dt * 6);
+    target.x = THREE.MathUtils.clamp(target.x, -BOUNDS.x, BOUNDS.x);
+    target.y = THREE.MathUtils.clamp(target.y, BOUNDS.yMin, BOUNDS.yMax);
+
+    // critically-damped follow → smooth, responsive
+    const px = ship.position.x, py = ship.position.y;
+    ship.position.x += (target.x - ship.position.x) * Math.min(1, dt * 9);
+    ship.position.y += (target.y - ship.position.y) * Math.min(1, dt * 9);
+    vel.set((ship.position.x - px) / Math.max(dt, 1e-4), (ship.position.y - py) / Math.max(dt, 1e-4));
+    const cl = THREE.MathUtils.clamp;
+    ship.rotation.z = THREE.MathUtils.lerp(ship.rotation.z, cl(-vel.x * 0.06, -0.65, 0.65), Math.min(1, dt * 8));
+    ship.rotation.x = THREE.MathUtils.lerp(ship.rotation.x, cl(vel.y * 0.035, -0.35, 0.35), Math.min(1, dt * 8));
+    ship.rotation.y = THREE.MathUtils.lerp(ship.rotation.y, cl(-vel.x * 0.02, -0.25, 0.25), Math.min(1, dt * 8));
+
+    // spawn rate scales with speed
+    spawnAcc += dt * (1.8 + speed / 22);
+    while (spawnAcc > 1) { spawnAcc -= 1; spawnRock(); }
+  } else if (state === 'title' || state === 'loading') {
+    // idle hover on the title screen
+    ship.position.set(Math.sin(t * 0.6) * 0.6, Math.sin(t * 1.1) * 0.25, 0);
+    ship.rotation.set(Math.sin(t * 1.1) * 0.05, 0, Math.sin(t * 0.6) * -0.18);
+  }
+
+  // rocks
+  for (const r of rocks) {
+    if (!r.alive) continue;
+    const m = r.mesh;
+    m.position.z += cruise * dt;
+    m.position.x += r.drift.x * dt; m.position.y += r.drift.y * dt;
+    m.rotation.x += r.spin.x * dt; m.rotation.y += r.spin.y * dt; m.rotation.z += r.spin.z * dt;
+    if (m.position.z > DESPAWN_Z) { r.alive = false; m.visible = false; continue; }
+    if (!playing) continue;
+
+    // collision: rock sphere vs ship hit spheres (slightly forgiving radius)
+    const dz = m.position.z - ship.position.z;
+    if (Math.abs(dz) < r.r + 2.2) {
+      let minGap = Infinity;
+      for (const hs of hitSpheres) {
+        tmpW.copy(hs.p).applyEuler(ship.rotation).add(ship.position);
+        const gap = tmpW.distanceTo(m.position) - (r.r * 0.86 + hs.r);
+        if (gap < minGap) minGap = gap;
+        if (gap < 0) { gameOver(tmpV.copy(tmpW).lerp(m.position, 0.3)); return; }
+      }
+      if (minGap < 0.9 && !r.passed) r.nearGap = Math.min(r.nearGap ?? Infinity, minGap);
+    }
+    if (!r.passed && dz > r.r + 1.5) {
+      r.passed = true;
+      if ((r.nearGap ?? Infinity) < 0.9) {
+        nearMisses++; score += 50; popup('+50 NEAR MISS', ship.position.clone().add(new THREE.Vector3(0, 1.4, 0)));
+        blip(660, 0.12, 'square', 0.07);
+      }
+      r.nearGap = Infinity;
+    }
+  }
+
+  // stars
+  const sp = starGeo.attributes.position.array;
+  for (let i = 0; i < STAR_N; i++) {
+    sp[i*3+2] += cruise * dt * 0.9;
+    if (sp[i*3+2] > 10) sp[i*3+2] -= 410;
+  }
+  starGeo.attributes.position.needsUpdate = true;
+
+  // speed lines
+  const s01 = THREE.MathUtils.clamp((cruise - 20) / (MAX_SPEED - 20), 0, 1);
+  const len = 2 + s01 * 18;
+  for (let i = 0; i < LINE_N; i++) {
+    const L = lineSeed[i];
+    L.z += cruise * dt * 1.6;
+    if (L.z > 12) L.z -= 170;
+    linePos[i*6] = L.x; linePos[i*6+1] = L.y; linePos[i*6+2] = L.z;
+    linePos[i*6+3] = L.x; linePos[i*6+4] = L.y; linePos[i*6+5] = L.z - len;
+  }
+  lineGeo.attributes.position.needsUpdate = true;
+  lineMat.opacity = 0.08 + s01 * 0.32;
+
+  // engines flicker
+  for (const e of engines) e.scale.setScalar(e.userData.base * (0.85 + Math.random() * 0.3) * (0.9 + s01 * 0.6));
+  engineLight.intensity = 3 + Math.random() * 1.5;
+
+  // explosion
+  if (burstT > 0) {
+    burstT -= dt;
+    const bp = burstGeo.attributes.position.array;
+    for (let i = 0; i < BURST_N * 3; i++) { bp[i] += burstVel[i] * dt; burstVel[i] *= 0.985; }
+    burstGeo.attributes.position.needsUpdate = true;
+    burstMat.opacity = Math.max(0, burstT / 1.4);
+  }
+
+  // camera: follows the ship loosely, widens FOV with speed (sense of velocity), shakes on impact
+  const want = tmpV.set(CAM_BASE.x + ship.position.x * 0.45, CAM_BASE.y + ship.position.y * 0.35, CAM_BASE.z);
+  camera.position.lerp(want, Math.min(1, dt * 4));
+  shake = Math.max(0, shake - dt * 1.4);
+  const jit = shake * shake * 0.6 + (playing ? s01 * 0.025 : 0);
+  camera.position.x += (Math.random() - 0.5) * jit; camera.position.y += (Math.random() - 0.5) * jit;
+  camera.lookAt(ship.position.x * 0.6, ship.position.y * 0.5 - 1.2, -20);
+  const wantFov = 60 + s01 * 14;
+  fov += (wantFov - fov) * Math.min(1, dt * 2);
+  if (Math.abs(camera.fov - fov) > 0.01) { camera.fov = fov; camera.updateProjectionMatrix(); }
+
+  if (humGain && actx) hum.frequency.setTargetAtTime(48 + s01 * 40, actx.currentTime, 0.2);
+
+  // HUD
+  if (playing) {
+    ui.score.textContent = fmt(score);
+    ui.speedv.textContent = (speed / BASE_SPEED).toFixed(1) + '×';
+    ui.speedbar.style.width = ((speed - BASE_SPEED) / (MAX_SPEED - BASE_SPEED) * 100).toFixed(1) + '%';
+  }
+}
+
+function frame() {
+  const dt = Math.min(clock.getDelta(), 1 / 20);   // clamp so a hitch can't teleport rocks through the ship
+  if (state !== 'paused') update(dt);
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+
+// rocks drifting behind the title screen
+for (let z = SPAWN_Z; z < 0; z += 7) spawnRock(z);
+requestAnimationFrame(frame);
+
+loadShip().then(() => {
+  modelSource = 'pegasus.glb';
+  ui.status.textContent = '';
+}).catch((err) => {
+  console.error('Pegasus model failed to load:', err);
+  modelSource = 'stand-in';
+  shipBody.add(buildStandIn());
+  addEngine(-0.35, 0.35, 1.35, 1.0); addEngine(0.35, 0.35, 1.35, 1.0);
+  ui.status.textContent = 'MODEL FAILED TO LOAD — FLYING A STAND-IN SHIP (' + (err && err.message ? err.message : err) + ')';
+  ui.status.classList.add('warn');
+}).finally(() => {
+  state = 'title';
+  ui.start.disabled = false; ui.start.textContent = 'LAUNCH';
+});
+
+// ---------- test hooks (read-only state for automated checks) ----------
+window.pegasusDodge = {
+  get state() { return state; },
+  get score() { return Math.floor(score); },
+  get best() { return best; },
+  get speed() { return speed; },
+  get ship() { return { x: ship.position.x, y: ship.position.y }; },
+  get liveRocks() { return rocks.filter((r) => r.alive).length; },
+  get model() { return modelSource; },
+  seed: initialSeed,
+  start: () => startGame(),
+};
+</script>
+</body>
+</html>

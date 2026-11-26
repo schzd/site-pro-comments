@@ -11,21 +11,24 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Echo',
+    'language' => 'ru-RU',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'comment/index',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        // Visitors never log in. The session only remembers the generated guest name.
         'user' => [
             'identityClass' => \common\models\User::class,
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'enableSession' => false,
+            'enableAutoLogin' => false,
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'echo-visitor',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -39,14 +42,25 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                '' => 'comment/index',
+                'GET comments' => 'comment/page',
+                'POST comments' => 'comment/create',
+                'POST comments/<id:\d+>/like' => 'comment/like',
+                'GET ws-token' => 'comment/ws-token',
+                'GET avatar.svg' => 'avatar/index',
+                'GET demo' => 'demo/index',
+                'POST demo/reset' => 'demo/reset',
+                // Any other verb on a known path must answer 405, not 404.
+                'comments' => 'comment/create',
+                'comments/<id:\d+>/like' => 'comment/like',
+                'demo/reset' => 'demo/reset',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

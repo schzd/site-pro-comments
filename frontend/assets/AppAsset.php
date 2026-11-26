@@ -1,33 +1,21 @@
 <?php
 
-/**
- * @link https://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
- */
-
 declare(strict_types=1);
 
 namespace frontend\assets;
 
-use common\assets\ColorModeAsset;
-use yii\bootstrap5\BootstrapAsset;
+use common\assets\ThemeAsset;
 use yii\web\AssetBundle;
-use yii\web\YiiAsset;
 
 /**
- * Main frontend application asset bundle.
+ * Public wall. Plain CSS + vanilla JS on top of the shared theme — no
+ * Bootstrap, no jQuery.
  */
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [
-        'css/site.css',
-    ];
-    public $depends = [
-        YiiAsset::class,
-        BootstrapAsset::class,
-        ColorModeAsset::class,
-    ];
+    public $css = ['css/wall.css'];
+    public $js = ['js/wall.js'];
+    public $depends = [ThemeAsset::class];
 }

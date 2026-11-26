@@ -1,0 +1,7 @@
+RewriteEngine on
+
+# Serve real files and directories (assets, /game/) directly…
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# …and route everything else through the front controller.
+RewriteRule . index.php

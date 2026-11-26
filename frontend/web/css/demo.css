@@ -1,0 +1,64 @@
+/* /demo — cinematic pipeline view */
+.demo-body { background:
+  radial-gradient(900px 420px at 15% -5%, rgba(220, 255, 72, .08), transparent 60%),
+  radial-gradient(700px 380px at 100% 0%, rgba(220, 255, 72, .05), transparent 60%), var(--bg); }
+.demo-top { display: flex; justify-content: space-between; align-items: center; padding: .8rem 24px; border-bottom: 1px solid var(--border); }
+.cp-sub { color: var(--dim); letter-spacing: 0; text-transform: none; font-weight: 400; }
+.demo { max-width: 1320px; margin: 0 auto; padding: 22px 24px 40px; }
+
+.demo-intro { text-align: center; padding: 26px 0 18px; transition: opacity .5s, max-height .6s, padding .6s; max-height: 600px; overflow: hidden; }
+.demo-intro h1 { font-size: clamp(1.8rem, 4.5vw, 3.2rem); line-height: 1.05; margin: .4rem 0 .8rem; letter-spacing: .01em; }
+.demo-intro h1 span { color: var(--lime); }
+.demo-intro p { max-width: 620px; margin: 0 auto 1.2rem; }
+.demo-kicker { color: var(--lime); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; }
+.demo-play { min-height: 54px; padding: 0 2rem; font-size: 1.1rem; box-shadow: 0 0 0 0 rgba(220, 255, 72, .5); animation: live-pulse 2s infinite; }
+.demo.is-running .demo-intro { opacity: 0; max-height: 0; padding: 0; }
+
+.demo-stage { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 18px 14px; }
+.pipeline { width: 100%; height: auto; display: block; }
+.edge { fill: none; stroke: var(--border-strong); stroke-width: 2; stroke-dasharray: 4 6; transition: stroke .2s; }
+.edge.hot { stroke: var(--lime); stroke-dasharray: none; }
+.node rect { fill: var(--bg); stroke: var(--border-strong); stroke-width: 1.5; transition: stroke .2s, fill .2s; }
+.node.hot rect { stroke: var(--lime); fill: #1f2214; }
+.node-title { fill: var(--text); font: 700 13px var(--font); letter-spacing: .12em; }
+.node-sub { fill: var(--dim); font: 400 10.5px var(--mono); }
+.node.hot .node-title { fill: var(--lime); }
+.particle { fill: var(--lime); filter: url(#glow); }
+
+.demo-controls { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 8px; }
+.demo-speed { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .8rem; }
+.demo-speed input { accent-color: var(--lime); width: 140px; }
+.demo-stats { margin-left: auto; display: flex; gap: 1rem; flex-wrap: wrap; color: var(--dim); font-size: .8rem; }
+.demo-stats b { color: var(--text); font-weight: 600; }
+
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr 1.05fr; gap: 16px; margin-top: 16px; }
+.demo-pane { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; min-height: 420px; max-height: 560px; overflow: hidden; }
+.demo-pane-head { display: flex; justify-content: space-between; padding: .7rem 1rem; border-bottom: 1px solid var(--border); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: .8rem; }
+.demo-pane-head .mono { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.demo-feed, .demo-admin, .trace { overflow-y: auto; flex: 1; }
+.demo-feed .post { padding: 12px 14px; }
+
+.demo-admin-row { display: grid; grid-template-columns: 64px 1fr auto; gap: .6rem; align-items: start; padding: .6rem .9rem; border-bottom: 1px solid var(--border); font-size: .88rem; }
+.demo-admin-row .mono { color: var(--dim); }
+.demo-admin-row b { font-weight: 600; }
+.demo-admin-row p { margin: .1rem 0 0; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.demo-admin-row.slide-out { opacity: 0; transition: opacity .3s; }
+
+.trace { list-style: none; margin: 0; padding: .4rem 0; font-size: .76rem; }
+.trace li { display: grid; grid-template-columns: 92px 34px 1fr; gap: .4rem; padding: .18rem .9rem; color: var(--muted); animation: toast-in .2s ease-out; }
+.trace .t { color: var(--dim); }
+.trace .src { color: var(--dim); text-transform: uppercase; }
+.trace .ok { color: var(--lime); }
+.trace .warn { color: var(--amber); }
+.trace .err { color: var(--danger); }
+
+@media (max-width: 980px) {
+  .demo-grid { grid-template-columns: 1fr; }
+  .demo-pane { min-height: 260px; max-height: 380px; }
+  .demo-stats { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .demo { padding: 16px; }
+  .demo-top { padding: .7rem 16px; }
+  .demo-top .topnav-game { display: none; }
+}
