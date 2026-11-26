@@ -3,7 +3,7 @@
     "echo-qa": {
       "type": "stdio",
       "command": "docker",
-      "args": ["compose", "--profile", "test", "run", "--rm", "-T", "--no-deps", "mcp"]
+      "args": ["compose", "--profile", "mcp", "run", "--rm", "-T", "--no-deps", "mcp"]
     }
   }
 }

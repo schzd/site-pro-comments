@@ -6,7 +6,7 @@ declare(strict_types=1);
  * echo-qa — MCP server (stdio, JSON-RPC 2.0) that lets an AI agent explore,
  * verify and extend this project against the LIVE Docker stack.
  *
- * Started by `.mcp.json` as:  docker compose --profile test run --rm -T mcp
+ * Started by `.mcp.json` as:  docker compose --profile mcp run --rm -T --no-deps mcp
  * Runs inside the compose network, so it reaches frontend/backend/ws/redis
  * (dev stack) and frontend-test/backend-test/ws-test (isolated test stack).
  *

@@ -229,7 +229,7 @@ created frontend/tests/Regression/StatsCest.php (group step-S4)
 Open this repository in Claude Code (or any MCP client) and it is ready to explore:
 
 * **[CLAUDE.md](CLAUDE.md) / [AGENTS.md](AGENTS.md)**: architecture, commands and the rules for extending the tests.
-* **MCP server `echo-qa`** ([.mcp.json](.mcp.json) → `docker compose --profile test run --rm -T mcp`, implemented in
+* **MCP server `echo-qa`** ([.mcp.json](.mcp.json) → `docker compose --profile mcp run --rm -T --no-deps mcp`, implemented in
   [`qa/mcp/server.php`](qa/mcp/server.php)). Its tools work on the *live* stack:
   * `project_overview`
   * `stack_status`: HTTP, the WebSocket hello, and the Redis subscriber count

@@ -206,7 +206,7 @@ services:
   # tester, plus the addresses of the development stack.
   mcp:
     <<: *php-cli
-    profiles: ["test"]
+    profiles: ["mcp"]   # never started by `up`; launched per-client by .mcp.json
     environment:
       <<: *php-env-e2e
       E2E_FRONTEND_URL: http://frontend-test
