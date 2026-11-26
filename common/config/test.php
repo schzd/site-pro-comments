@@ -16,6 +16,7 @@ return [
             CommentEventPublisherInterface::class => SpyCommentEventPublisher::class,
         ],
     ],
+    'params' => array_merge(require __DIR__ . '/params.php', require __DIR__ . '/params-local.php'),
     'components' => [
         'user' => [
             'class' => \yii\web\User::class,

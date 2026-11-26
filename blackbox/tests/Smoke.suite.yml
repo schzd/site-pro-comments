@@ -1,0 +1,17 @@
+# SMOKE — "is the deployed thing alive end to end?"
+# Real HTTP against frontend-test/backend-test, a raw WebSocket client
+# against ws-test. Seconds to run; gate on every push.
+actor: SmokeTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: '%E2E_FRONTEND_URL%'
+            timeout: 10
+        - Asserts
+        - blackbox\tests\Support\Helper\Stack:
+            frontend: '%E2E_FRONTEND_URL%'
+            backend: '%E2E_BACKEND_URL%'
+            wsHost: '%E2E_WS_HOST%'
+            wsPort: '%E2E_WS_PORT%'
+            adminUser: '%ADMIN_USERNAME%'
+            adminPassword: '%ADMIN_PASSWORD%'

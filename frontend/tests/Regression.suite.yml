@@ -1,0 +1,8 @@
+# REGRESSION (frontend) — in-process functional tests through the Yii2 module:
+# real routing, controllers, validation and MySQL (own schema), with the
+# realtime publisher replaced by a spy so every published event is asserted.
+actor: RegressionTester
+modules:
+    enabled:
+        - Yii2
+        - Asserts

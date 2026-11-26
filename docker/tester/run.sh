@@ -15,6 +15,9 @@
 set -euo pipefail
 cd /app
 
+# Actor classes (*Tester.php) are generated, not committed.
+for p in common frontend backend blackbox; do vendor/bin/codecept build -c "$p" >/dev/null; done
+
 suite="${1:-all}"
 shift || true
 
@@ -43,11 +46,11 @@ run_suite() {
     case "$s" in
         unit)
             prepare_db yii2advanced_unit
-            vendor/bin/codecept run Unit "$@"
+            vendor/bin/codecept run -c common Unit "$@"
             ;;
         regression)
             prepare_db yii2advanced_regression
-            vendor/bin/codecept run Regression "$@"
+            vendor/bin/codecept run -c frontend Regression "$@" && vendor/bin/codecept run -c backend Regression "$@"
             ;;
         smoke|e2e)
             # The black-box suites talk to frontend-test/backend-test/ws-test,
@@ -58,9 +61,9 @@ run_suite() {
             require_http backend-test "${E2E_BACKEND_URL}/login"
             if [ "$s" = "e2e" ]; then
                 require_http selenium "http://${SELENIUM_HOST}:4444/status"
-                vendor/bin/codecept run E2E "$@"
+                vendor/bin/codecept run -c blackbox E2E "$@"
             else
-                vendor/bin/codecept run Smoke "$@"
+                vendor/bin/codecept run -c blackbox Smoke "$@"
             fi
             ;;
         *)

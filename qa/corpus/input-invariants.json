@@ -1,0 +1,7 @@
+{
+    "description": "Counterexamples found by InputInvariantsTest; replayed on every run.",
+    "cases": [
+        {"author_b64": "IABBIAA=", "body_b64": "DQoNCg0KDQp4", "note": "seed case: control chars + CRLF runs"},
+        {"author_b64": "4oCuQWRh", "body_b64": "/0E=", "note": "seed case: RTL override + invalid UTF-8 byte"}
+    ]
+}

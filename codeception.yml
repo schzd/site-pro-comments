@@ -1,8 +1,14 @@
-# global codeception file to run tests from all apps
+# Root Codeception config: one command runs a suite across every project.
+#   vendor/bin/codecept run Unit        -> common (+ any app Unit suites)
+#   vendor/bin/codecept run Regression  -> frontend + backend, in-process
+#   vendor/bin/codecept run Smoke       -> blackbox, real HTTP + WebSocket
+#   vendor/bin/codecept run E2E         -> blackbox, real Chromium via Selenium
+# Prefer docker/tester/run.sh, which also selects the per-suite database.
 include:
     - common
     - frontend
     - backend
+    - blackbox
 paths:
     output: console/runtime/output
 settings:

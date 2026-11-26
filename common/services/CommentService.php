@@ -109,7 +109,9 @@ final class CommentService
                 $liked = true;
             } else {
                 $existing->delete();
-                $db->createCommand('UPDATE {{%comment}} SET [[likes]] = GREATEST([[likes]] - 1, 0) WHERE [[id]] = :id', [':id' => $comment->id])->execute();
+                // NB: not GREATEST(likes - 1, 0) — on an UNSIGNED column `0 - 1` overflows
+                // before GREATEST can clamp it (found by CommentServiceTest, see README REG-001).
+                $db->createCommand('UPDATE {{%comment}} SET [[likes]] = CASE WHEN [[likes]] > 0 THEN [[likes]] - 1 ELSE 0 END WHERE [[id]] = :id', [':id' => $comment->id])->execute();
                 $liked = false;
             }
             $transaction->commit();
