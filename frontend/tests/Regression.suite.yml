@@ -4,5 +4,11 @@
 actor: RegressionTester
 modules:
     enabled:
-        - Yii2
+        - Yii2:
+            # A fresh application per request, like production (no state leaks
+            # between requests, e.g. a JSON response format).
+            recreateApplication: true
+            # Fresh app = fresh DB connection, so a wrapping transaction would
+            # hide test data from it. Fixtures are reloaded before every test.
+            transaction: false
         - Asserts
