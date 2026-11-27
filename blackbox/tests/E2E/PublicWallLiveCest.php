@@ -30,6 +30,48 @@ final class PublicWallLiveCest
         $I->seeElement('//article[contains(@class,"is-new")][contains(., "' . $text . '")]');
     }
 
+    /**
+     * REG-007: the author's own WebSocket frame often lands before the POST
+     * response, and the "N постов" counter was bumped by both (2 posts → 4).
+     * The POST response is held back on purpose so the frame always wins.
+     * Asserted as a delta against rendered cards, so posts from parallel
+     * workers cannot make it flaky.
+     */
+    public function ownPostIsCountedOnceWhenTheFrameBeatsThePostResponse(E2ETester $I): void
+    {
+        $text = $I->uniqueText('e2e count once');
+
+        $I->amOnUrl($I->frontendUrl('/'));
+        $I->waitForElement('[data-live][data-state="live"]', 10);
+        $I->executeJS(<<<'JS'
+            const realFetch = window.fetch;
+            window.fetch = async (url, opts) => {
+                const res = await realFetch(url, opts);
+                if (opts && opts.method === 'POST' && String(url).endsWith('/comments')) {
+                    await new Promise((r) => setTimeout(r, 1500));
+                }
+                return res;
+            };
+        JS);
+        $snapshot = 'return {total: Number(document.querySelector("[data-total]").textContent),'
+            . ' cards: document.querySelectorAll("[data-feed] [data-comment-id]").length};';
+        $before = $I->executeJS($snapshot);
+
+        $I->fillField('#comment-body', $text);
+        $I->click('[data-submit]');
+        $I->waitForText($text, 10, '[data-feed]');         // rendered from the frame
+        $I->waitForJS('return document.querySelector("#comment-body").value === "";', 10); // POST response handled
+        $I->wait(0.5);
+        $after = $I->executeJS($snapshot);
+
+        $I->assertSame(
+            $after['cards'] - $before['cards'],
+            $after['total'] - $before['total'],
+            'each new card must add exactly one to the post counter',
+        );
+        $I->seeNumberOfElements('//article[contains(., "' . $text . '")]', 1);
+    }
+
     public function scrolledReaderGetsNewPostsPill(E2ETester $I): void
     {
         $text = $I->uniqueText('e2e pill');

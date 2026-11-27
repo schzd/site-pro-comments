@@ -23,6 +23,14 @@
 
   const pending = [];      // live arrivals held back while the reader is scrolled down
   const mine = new Set();  // ids this tab posted (already rendered from the POST response)
+  // REG-007: the author's own frame can beat the POST response (REG-004), so
+  // both paths may see the same new id. Each id is added to the total once.
+  const counted = new Set();
+  function countNew(id) {
+    if (counted.has(id)) return;
+    counted.add(id);
+    bumpTotal(1);
+  }
 
   // ---- composer -----------------------------------------------------------
   const max = Number(counter.dataset.max);
@@ -63,9 +71,18 @@
       const res = await Echo.request(root.dataset.createUrl, { method: 'POST', body: new FormData(form) });
       if (res.status === 201) {
         showErrors({});
-        mine.add(res.data.comment.id);
+        const id = res.data.comment.id;
+        mine.add(id);
+        // If our own frame arrived first while scrolled down, it is waiting in
+        // the "new posts" pill; it is ours, so take it out of there.
+        const queued = pending.findIndex((p) => p.id === id);
+        if (queued !== -1) {
+          pending.splice(queued, 1);
+          pillCount.textContent = pending.length;
+          pill.hidden = pending.length === 0;
+        }
         feed.prepend(res.data.comment);
-        bumpTotal(1);
+        countNew(id);
         body.value = '';
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (!res.data.realtime.delivered) Echo.toast('Опубликовано, но live-релей недоступен', 'warn');
@@ -149,8 +166,8 @@
     const d = f.data || {};
     switch (f.event) {
       case 'comment.created':
-        if (mine.has(d.id) || feed.has(d.id)) return;
-        bumpTotal(1);
+        if (mine.has(d.id) || feed.has(d.id) || pending.some((p) => p.id === d.id)) return;
+        countNew(d.id);
         if (atTop()) { feed.prepend(d); } else {
           pending.push(d);
           pillCount.textContent = pending.length;

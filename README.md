@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/schzd/site-pro-comments/actions/workflows/ci.yml"><img src="https://github.com/schzd/site-pro-comments/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <img src="https://img.shields.io/badge/tests-145%20passing-dcff48?style=flat-square&labelColor=121310" alt="145 tests passing">
+  <img src="https://img.shields.io/badge/tests-146%20passing-dcff48?style=flat-square&labelColor=121310" alt="146 tests passing">
   <img src="https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white&labelColor=121310" alt="PHP 8.4">
   <img src="https://img.shields.io/badge/Yii-2.0.54-dcff48?style=flat-square&labelColor=121310" alt="Yii 2.0.54">
   <img src="https://img.shields.io/badge/WebSockets-Ratchet%20%2B%20Redis-dcff48?style=flat-square&labelColor=121310" alt="WebSockets">
@@ -16,7 +16,7 @@
 
 <p align="center">
   <b>Post without logging in → the admin sees it appear live over WebSockets.</b><br>
-  One command: <code>docker compose up -d</code> · 145 tests traced to every step of the pipeline.
+  One command: <code>docker compose up -d</code> · 146 tests traced to every step of the pipeline.
 </p>
 
 <p align="center">
@@ -139,7 +139,7 @@ To watch the E2E browser live, open http://localhost:7900 (noVNC, password `secr
 | Admin: **login**, **list**, **edit**, **delete** | `backend/controllers/{Site,Comment}Controller.php`, `backend/views/comment/*` | S7–S9 |
 | New comment appears in the admin list **in real time via web-sockets** | Redis pub/sub → `php yii ws/serve` (Ratchet + clue/redis-react) → `backend/web/js/admin-live.js` | S5, S6, S8 |
 | **Whole project in Docker** | `docker-compose.yml`: mysql, redis, setup, frontend, backend, ws (+ test profile) | Smoke suite runs against the containers |
-| **Unit, smoke, e2e, regression** tests, each explained | [§5](#5-test-suites) | 145 tests, all green (output in §5) |
+| **Unit, smoke, e2e, regression** tests, each explained | [§5](#5-test-suites) | 146 tests, all green (output in §5) |
 | **Walk one comment** from the form to the admin list and name the test that locks each step | [§4](#4-review-walkthrough-one-comment-from-the-form-to-the-admin-list) and the generated [docs/TRACEABILITY.md](docs/TRACEABILITY.md) | `qa matrix --strict` |
 
 ---
@@ -210,7 +210,7 @@ The walkthrough can also be replayed live by an AI agent: `/walkthrough` (see [�
 docker compose run --rm tester unit          #  92 tests   ~8 s   no network services
 docker compose run --rm tester smoke         #  12 tests   ~10 s  needs: docker compose --profile test up -d
 docker compose run --rm tester regression    #  34 tests   ~15 s
-docker compose run --rm tester e2e           #   7 tests   ~45 s  real Chromium
+docker compose run --rm tester e2e           #   8 tests   ~45 s  real Chromium
 docker compose run --rm tester all           # gate order, stops at the first red suite
 docker compose run --rm tester regression -g step-S9 --filter delete -v    # any codecept args
 ```
@@ -247,15 +247,15 @@ The `qa` shards balance by measured time rather than by count.
 
 ```text
 ================================================================ unit
-OK (92 tests, 2767 assertions)
+OK (92 tests, 2731 assertions)
 ================================================================ smoke
 OK (12 tests, 41 assertions)
 ================================================================ regression
 OK (21 tests, 78 assertions)        # frontend
 OK (13 tests, 44 assertions)        # backend
 ================================================================ e2e
-OK (7 tests, 41 assertions)
-recorded 115 results at revision …; 0 flaky test(s) quarantined
+OK (8 tests, 43 assertions)
+recorded 117 results at revision …; 0 flaky test(s) quarantined
 ```
 
 ---
@@ -406,6 +406,7 @@ These were found by the suites while building the project, not seeded. Each one 
 | REG-004 | The relay is faster than the HTTP response: a frame can arrive before `fetch()` resolves, so the demo lost latency samples. | E2E `DemoModeCest` | Asserts every frame is matched |
 | REG-005 | Russian validation messages interpolated English labels ("«Name»"). | E2E `composerBlocksEmptyPosts…` | Same test |
 | REG-006 | E2E browser sessions leaked between tests: the admin cookie and the second tab carried over, causing an order-dependent failure. | `qa history` (trail `FP`) | `restart: true` per test |
+| REG-007 | The wall's "N постов" counter double-counted the author's own post (2 posts showed 4): the REG-004 race again, since both the early WebSocket frame and the POST response bumped the total. The database was right; only the counter was wrong. | Manual check on a second machine | E2E `ownPostIsCountedOnceWhenTheFrameBeatsThePostResponse` (holds the POST response back so the frame always wins; red before the fix, green after) |
 
 ---
 

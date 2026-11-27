@@ -8,90 +8,90 @@ Legend: ✅ passed in the last recorded run · ❌ failed · · not run yet · �
 
 | Suite | Guarding tests |
 |---|---|
-| smoke * | · `PipelineSmokeCest::wallIsUpAndOffersTheComposer` |
-| regression * | · `WallCest::wallRendersComposerWithoutLogin` |
-| e2e * | · `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>· `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors`<br>· `PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll` |
+| smoke * | ✅ `PipelineSmokeCest::wallIsUpAndOffersTheComposer` |
+| regression * | ✅ `WallCest::wallRendersComposerWithoutLogin` |
+| e2e * | ✅ `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors`<br>✅ `PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll` |
 
 ## S2 — Visitor submits; the server validates and normalises the input
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `CommentValidationTest::testAdminCanChangeStatusButOnlyToKnownValues`<br>· `CommentValidationTest::testHtmlIsStoredVerbatimAndEscapedOnlyOnOutput`<br>· `CommentValidationTest::testInvalidInputIsRejected`<br>· `CommentValidationTest::testLengthIsCountedInCharactersNotBytes`<br>· `CommentValidationTest::testNormalisationTrimsAndCollapses`<br>· `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields`<br>· `CommentValidationTest::testValidCommentPasses`<br>· `CommentValidationTest::testVisitorCannotMassAssignPrivilegedFields`<br>· `InputInvariantsTest::testCorpusReplay`<br>· `InputInvariantsTest::testGeneratedInputs`<br>· `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>· `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished` |
-| smoke * | · `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay`<br>· `PipelineSmokeCest::postWithoutCsrfIsRefused` |
-| regression * | · `WallCest::ajaxPostPersistsAndPublishesOnce`<br>· `WallCest::blankNameGetsAStableGuestHandle`<br>· `WallCest::invalidPostIsRejectedWith422AndNothingHappens`<br>· `WallCest::noJavascriptFallbackPostsAndRedirects`<br>· `WallCest::privilegedFieldsCannotBeInjected`<br>· `WallCest::requestWithoutCsrfTokenIsRefused`<br>· `WallCest::wrongVerbsAreRejected` |
-| e2e * | · `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
+| unit * | ✅ `CommentValidationTest::testAdminCanChangeStatusButOnlyToKnownValues`<br>✅ `CommentValidationTest::testHtmlIsStoredVerbatimAndEscapedOnlyOnOutput`<br>✅ `CommentValidationTest::testInvalidInputIsRejected`<br>✅ `CommentValidationTest::testLengthIsCountedInCharactersNotBytes`<br>✅ `CommentValidationTest::testNormalisationTrimsAndCollapses`<br>✅ `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields`<br>✅ `CommentValidationTest::testValidCommentPasses`<br>✅ `CommentValidationTest::testVisitorCannotMassAssignPrivilegedFields`<br>✅ `InputInvariantsTest::testCorpusReplay`<br>✅ `InputInvariantsTest::testGeneratedInputs`<br>✅ `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>✅ `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished` |
+| smoke * | ✅ `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay`<br>✅ `PipelineSmokeCest::postWithoutCsrfIsRefused` |
+| regression * | ✅ `WallCest::ajaxPostPersistsAndPublishesOnce`<br>✅ `WallCest::blankNameGetsAStableGuestHandle`<br>✅ `WallCest::invalidPostIsRejectedWith422AndNothingHappens`<br>✅ `WallCest::noJavascriptFallbackPostsAndRedirects`<br>✅ `WallCest::privilegedFieldsCannotBeInjected`<br>✅ `WallCest::requestWithoutCsrfTokenIsRefused`<br>✅ `WallCest::wrongVerbsAreRejected` |
+| e2e * | ✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
 
 ## S3 — The comment is persisted in MySQL
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>· `CommentServiceTest::testCreatePersistsThenPublishesOnce`<br>· `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>· `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished`<br>· `CommentServiceTest::testLikeCounterNeverGoesNegative`<br>· `CommentServiceTest::testLikeTogglesAndIsUniquePerVoter`<br>· `CommentServiceTest::testLikesAreRateLimitedPerIp`<br>· `CommentServiceTest::testPurgeRemovesOnlyDemoComments`<br>· `CommentServiceTest::testRelayOutageNeverLosesTheComment`<br>· `CommentServiceTest::testUpdatePublishesTheNewState` |
-| smoke * | · `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay` |
-| regression * | · `DemoCest::demoFlagMarksCommentsAsDemo`<br>· `WallCest::ajaxPostPersistsAndPublishesOnce` |
+| unit * | ✅ `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>✅ `CommentServiceTest::testCreatePersistsThenPublishesOnce`<br>✅ `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>✅ `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished`<br>✅ `CommentServiceTest::testLikeCounterNeverGoesNegative`<br>✅ `CommentServiceTest::testLikeTogglesAndIsUniquePerVoter`<br>✅ `CommentServiceTest::testLikesAreRateLimitedPerIp`<br>✅ `CommentServiceTest::testPurgeRemovesOnlyDemoComments`<br>✅ `CommentServiceTest::testRelayOutageNeverLosesTheComment`<br>✅ `CommentServiceTest::testUpdatePublishesTheNewState` |
+| smoke * | ✅ `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay` |
+| regression * | ✅ `DemoCest::demoFlagMarksCommentsAsDemo`<br>✅ `WallCest::ajaxPostPersistsAndPublishesOnce` |
 
 ## S4 — It appears in the public feed: order, keyset paging, escaping, likes, avatars
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `HandleAvatarTest::testAvatarIsDeterministicAndSeedSensitive`<br>· `HandleAvatarTest::testAvatarIsSelfContainedSvg`<br>· `HandleAvatarTest::testGuestNameFormat`<br>· `HandleAvatarTest::testHandleFromName`<br>· `HandleAvatarTest::testHandleIsIdempotentSoItCanSeedAvatars`<br>· `CommentQueryTest::testDemoScope`<br>· `CommentQueryTest::testKeysetCursorContinuesExactlyAfterTheLastRow`<br>· `CommentQueryTest::testPublishedFeedIsNewestFirstAndExcludesHidden`<br>· `CommentQueryTest::testSameSecondCommentsAreOrderedByIdDescending`<br>· `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields` |
-| smoke * | · `PipelineSmokeCest::postedCommentIsInThePublicFeed` |
-| regression * | · `WallCest::avatarsAreDeterministicAndCacheable`<br>· `WallCest::feedIsNewestFirstWithIdTieBreakAndHidesHidden`<br>· `WallCest::hiddenCommentsCannotBeLiked`<br>· `WallCest::likeTogglesPersistsAndPublishes`<br>· `WallCest::loadMoreNeverDuplicatesWhileNewCommentsArrive`<br>· `WallCest::malformedCursorIs400`<br>· `WallCest::markupInCommentsIsRenderedAsText`<br>· `WallCest::noJavascriptFallbackPostsAndRedirects` |
-| e2e * | · `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>· `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors`<br>· `PublicWallLiveCest::likeIsOptimisticAndPersists`<br>· `PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll`<br>· `PublicWallLiveCest::otherVisitorsSeeNewPostsLive`<br>· `PublicWallLiveCest::scrolledReaderGetsNewPostsPill` |
+| unit * | ✅ `HandleAvatarTest::testAvatarIsDeterministicAndSeedSensitive`<br>✅ `HandleAvatarTest::testAvatarIsSelfContainedSvg`<br>✅ `HandleAvatarTest::testGuestNameFormat`<br>✅ `HandleAvatarTest::testHandleFromName`<br>✅ `HandleAvatarTest::testHandleIsIdempotentSoItCanSeedAvatars`<br>✅ `CommentQueryTest::testDemoScope`<br>✅ `CommentQueryTest::testKeysetCursorContinuesExactlyAfterTheLastRow`<br>✅ `CommentQueryTest::testPublishedFeedIsNewestFirstAndExcludesHidden`<br>✅ `CommentQueryTest::testSameSecondCommentsAreOrderedByIdDescending`<br>✅ `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields` |
+| smoke * | ✅ `PipelineSmokeCest::postedCommentIsInThePublicFeed` |
+| regression * | ✅ `WallCest::avatarsAreDeterministicAndCacheable`<br>✅ `WallCest::feedIsNewestFirstWithIdTieBreakAndHidesHidden`<br>✅ `WallCest::hiddenCommentsCannotBeLiked`<br>✅ `WallCest::likeTogglesPersistsAndPublishes`<br>✅ `WallCest::loadMoreNeverDuplicatesWhileNewCommentsArrive`<br>✅ `WallCest::malformedCursorIs400`<br>✅ `WallCest::markupInCommentsIsRenderedAsText`<br>✅ `WallCest::noJavascriptFallbackPostsAndRedirects` |
+| e2e * | ✅ `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors`<br>✅ `PublicWallLiveCest::likeIsOptimisticAndPersists`<br>✅ `PublicWallLiveCest::mobileComposerDocksToTheBottomWithoutHorizontalScroll`<br>✅ `PublicWallLiveCest::otherVisitorsSeeNewPostsLive`<br>✅ `PublicWallLiveCest::ownPostIsCountedOnceWhenTheFrameBeatsThePostResponse`<br>✅ `PublicWallLiveCest::scrolledReaderGetsNewPostsPill` |
 
 ## S5 — An event is published on the Redis channel (envelope with trace id)
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `EnvelopeTest::testDecodeRejectsForeignOrBrokenMessages`<br>· `EnvelopeTest::testEncodedFormIsStable`<br>· `EnvelopeTest::testRoundTrip`<br>· `EnvelopeTest::testTraceIdsAreUnique`<br>· `RedisCommentEventPublisherTest::testPublishesEnvelopeOnConfiguredChannel`<br>· `RedisCommentEventPublisherTest::testRedisOutageReturnsFailedResultInsteadOfThrowing`<br>· `RedisCommentEventPublisherTest::testZeroSubscribersIsDeliveredButObservable`<br>· `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>· `CommentServiceTest::testCreatePersistsThenPublishesOnce`<br>· `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>· `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished`<br>· `CommentServiceTest::testLikeCounterNeverGoesNegative`<br>· `CommentServiceTest::testLikeTogglesAndIsUniquePerVoter`<br>· `CommentServiceTest::testLikesAreRateLimitedPerIp`<br>· `CommentServiceTest::testPurgeRemovesOnlyDemoComments`<br>· `CommentServiceTest::testRelayOutageNeverLosesTheComment`<br>· `CommentServiceTest::testUpdatePublishesTheNewState` |
-| smoke * | · `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay` |
-| regression * | · `WallCest::ajaxPostPersistsAndPublishesOnce`<br>· `WallCest::relayOutageIsReportedButCommentIsKept` |
+| unit * | ✅ `EnvelopeTest::testDecodeRejectsForeignOrBrokenMessages`<br>✅ `EnvelopeTest::testEncodedFormIsStable`<br>✅ `EnvelopeTest::testRoundTrip`<br>✅ `EnvelopeTest::testTraceIdsAreUnique`<br>✅ `RedisCommentEventPublisherTest::testPublishesEnvelopeOnConfiguredChannel`<br>✅ `RedisCommentEventPublisherTest::testRedisOutageReturnsFailedResultInsteadOfThrowing`<br>✅ `RedisCommentEventPublisherTest::testZeroSubscribersIsDeliveredButObservable`<br>✅ `CommentServiceTest::testBlankNameFallsBackToTheSessionGuestName`<br>✅ `CommentServiceTest::testCreatePersistsThenPublishesOnce`<br>✅ `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>✅ `CommentServiceTest::testInvalidCommentIsNeitherSavedNorPublished`<br>✅ `CommentServiceTest::testLikeCounterNeverGoesNegative`<br>✅ `CommentServiceTest::testLikeTogglesAndIsUniquePerVoter`<br>✅ `CommentServiceTest::testLikesAreRateLimitedPerIp`<br>✅ `CommentServiceTest::testPurgeRemovesOnlyDemoComments`<br>✅ `CommentServiceTest::testRelayOutageNeverLosesTheComment`<br>✅ `CommentServiceTest::testUpdatePublishesTheNewState` |
+| smoke * | ✅ `PipelineSmokeCest::postIsAcceptedAndReachesTheRelay` |
+| regression * | ✅ `WallCest::ajaxPostPersistsAndPublishesOnce`<br>✅ `WallCest::relayOutageIsReportedButCommentIsKept` |
 | e2e | ✅ `DemoModeCest::demoPostsRealCommentsAndResetCleansUp` |
 
 ## S6 — The WS relay authenticates sockets and fans the event out per scope
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields`<br>· `RelayHubTest::testAdminReceivesFullPayloadWithRelayMetadata`<br>· `RelayHubTest::testFanOutCountsEverySocketAndSkipsClosedOnes`<br>· `RelayHubTest::testGreetsAuthorisedSocketWithScope`<br>· `RelayHubTest::testHiddenCommentsAreInvisibleToPublicAndHidingIsAnnouncedAsDeletion`<br>· `RelayHubTest::testMalformedRedisMessageIsDroppedAndLogged`<br>· `RelayHubTest::testPingIsAnsweredOnlyForAuthorisedSockets`<br>· `RelayHubTest::testPublicSocketNeverSeesPrivateFields`<br>· `RelayHubTest::testPurgeReachesPublicSocketsWithIdsOnly`<br>· `RelayHubTest::testRejectsSocketWithNoTokenParameter`<br>· `RelayHubTest::testRejectsSocketWithoutValidTokenUsingCloseCode4401`<br>· `SocketTokenServiceTest::testExpiredTokenIsRejected`<br>· `SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject`<br>· `SocketTokenServiceTest::testMalformedTokensAreRejected`<br>· `SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected`<br>· `SocketTokenServiceTest::testRefusesUnknownScope`<br>· `SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope`<br>· `SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected`<br>· `SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond` |
-| smoke * | · `PipelineSmokeCest::adminSocketReceivesTheNewCommentLive`<br>· `PipelineSmokeCest::relayClosesTokenlessSocketWith4401`<br>· `PipelineSmokeCest::relayGreetsPublicSocket`<br>· `PipelineSmokeCest::relayIsReachableSameOriginThroughBothApps`<br>· `PipelineSmokeCest::relayRejectsSocketsWithoutValidToken` |
-| regression | · `WallCest::publicSocketTokenHasPublicScopeOnly` |
+| unit * | ✅ `CommentValidationTest::testPublicProjectionNeverLeaksPrivateFields`<br>✅ `RelayHubTest::testAdminReceivesFullPayloadWithRelayMetadata`<br>✅ `RelayHubTest::testFanOutCountsEverySocketAndSkipsClosedOnes`<br>✅ `RelayHubTest::testGreetsAuthorisedSocketWithScope`<br>✅ `RelayHubTest::testHiddenCommentsAreInvisibleToPublicAndHidingIsAnnouncedAsDeletion`<br>✅ `RelayHubTest::testMalformedRedisMessageIsDroppedAndLogged`<br>✅ `RelayHubTest::testPingIsAnsweredOnlyForAuthorisedSockets`<br>✅ `RelayHubTest::testPublicSocketNeverSeesPrivateFields`<br>✅ `RelayHubTest::testPurgeReachesPublicSocketsWithIdsOnly`<br>✅ `RelayHubTest::testRejectsSocketWithNoTokenParameter`<br>✅ `RelayHubTest::testRejectsSocketWithoutValidTokenUsingCloseCode4401`<br>✅ `SocketTokenServiceTest::testExpiredTokenIsRejected`<br>✅ `SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject`<br>✅ `SocketTokenServiceTest::testMalformedTokensAreRejected`<br>✅ `SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected`<br>✅ `SocketTokenServiceTest::testRefusesUnknownScope`<br>✅ `SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope`<br>✅ `SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected`<br>✅ `SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond` |
+| smoke * | ✅ `PipelineSmokeCest::adminSocketReceivesTheNewCommentLive`<br>✅ `PipelineSmokeCest::relayClosesTokenlessSocketWith4401`<br>✅ `PipelineSmokeCest::relayGreetsPublicSocket`<br>✅ `PipelineSmokeCest::relayIsReachableSameOriginThroughBothApps`<br>✅ `PipelineSmokeCest::relayRejectsSocketsWithoutValidToken` |
+| regression | ✅ `WallCest::publicSocketTokenHasPublicScopeOnly` |
 | e2e * | ✅ `DemoModeCest::demoPostsRealCommentsAndResetCleansUp` |
 
 ## S7 — The administrator signs in and gets an admin-scope socket token
 
 | Suite | Guarding tests |
 |---|---|
-| unit | · `SocketTokenServiceTest::testExpiredTokenIsRejected`<br>· `SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject`<br>· `SocketTokenServiceTest::testMalformedTokensAreRejected`<br>· `SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected`<br>· `SocketTokenServiceTest::testRefusesUnknownScope`<br>· `SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope`<br>· `SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected`<br>· `SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond` |
-| smoke * | · `PipelineSmokeCest::adminLoginPageIsUp` |
-| regression * | · `AdminCest::adminLogsInAndSeesTheLiveList`<br>· `AdminCest::adminSocketTokenCarriesAdminScopeAndUserId`<br>· `AdminCest::guestsAreSentToLogin`<br>· `AdminCest::logoutIsPostOnly`<br>· `AdminCest::wrongPasswordIsRejected` |
-| e2e * | · `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>· `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
+| unit | ✅ `SocketTokenServiceTest::testExpiredTokenIsRejected`<br>✅ `SocketTokenServiceTest::testIssuedTokenVerifiesWithScopeAndSubject`<br>✅ `SocketTokenServiceTest::testMalformedTokensAreRejected`<br>✅ `SocketTokenServiceTest::testPrivilegeEscalationByEditingPayloadIsRejected`<br>✅ `SocketTokenServiceTest::testRefusesUnknownScope`<br>✅ `SocketTokenServiceTest::testRefusesWeakSecretAndUnknownScope`<br>✅ `SocketTokenServiceTest::testTokenFromAnotherSecretIsRejected`<br>✅ `SocketTokenServiceTest::testTokensAreUniqueEvenWithinTheSameSecond` |
+| smoke * | ✅ `PipelineSmokeCest::adminLoginPageIsUp` |
+| regression * | ✅ `AdminCest::adminLogsInAndSeesTheLiveList`<br>✅ `AdminCest::adminSocketTokenCarriesAdminScopeAndUserId`<br>✅ `AdminCest::guestsAreSentToLogin`<br>✅ `AdminCest::logoutIsPostOnly`<br>✅ `AdminCest::wrongPasswordIsRejected` |
+| e2e * | ✅ `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
 
 ## S8 — The admin list shows it; new rows arrive live over WebSocket, no reload
 
 | Suite | Guarding tests |
 |---|---|
-| smoke * | · `PipelineSmokeCest::adminListShowsTheComment`<br>· `PipelineSmokeCest::adminSocketReceivesTheNewCommentLive` |
-| regression * | · `AdminCest::adminLogsInAndSeesTheLiveList`<br>· `AdminCest::adminViewEscapesMarkup`<br>· `AdminCest::filtersNarrowTheList`<br>· `AdminCest::listIsNewestFirstAndIncludesHiddenAndDemoRows` |
-| e2e * | · `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>· `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
+| smoke * | ✅ `PipelineSmokeCest::adminListShowsTheComment`<br>✅ `PipelineSmokeCest::adminSocketReceivesTheNewCommentLive` |
+| regression * | ✅ `AdminCest::adminLogsInAndSeesTheLiveList`<br>✅ `AdminCest::adminViewEscapesMarkup`<br>✅ `AdminCest::filtersNarrowTheList`<br>✅ `AdminCest::listIsNewestFirstAndIncludesHiddenAndDemoRows` |
+| e2e * | ✅ `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
 
 ## S9 — The admin edits / hides / deletes; every open page follows live
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>· `CommentServiceTest::testUpdatePublishesTheNewState` |
-| regression * | · `AdminCest::deleteIsPostOnlyCsrfProtectedAnd404ForUnknownIds`<br>· `AdminCest::deleteRemovesRowAndPublishesDeletion`<br>· `AdminCest::editSavesAndPublishesUpdate`<br>· `AdminCest::hidingAPublishedCommentIsPublishedWithHiddenStatus`<br>· `AdminCest::invalidEditShowsErrorsAndPublishesNothing` |
-| e2e * | · `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>· `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
+| unit * | ✅ `CommentServiceTest::testDeletePublishesIdAfterRemoval`<br>✅ `CommentServiceTest::testUpdatePublishesTheNewState` |
+| regression * | ✅ `AdminCest::deleteIsPostOnlyCsrfProtectedAnd404ForUnknownIds`<br>✅ `AdminCest::deleteRemovesRowAndPublishesDeletion`<br>✅ `AdminCest::editSavesAndPublishesUpdate`<br>✅ `AdminCest::hidingAPublishedCommentIsPublishedWithHiddenStatus`<br>✅ `AdminCest::invalidEditShowsErrorsAndPublishesNothing` |
+| e2e * | ✅ `LiveCommentFlowCest::commentTravelsFromFormToAdminListLive`<br>✅ `LiveCommentFlowCest::composerBlocksEmptyPostsAndShowsServerErrors` |
 
 ## DEMO — /demo drives the real pipeline; Reset purges demo rows only
 
 | Suite | Guarding tests |
 |---|---|
-| regression * | · `DemoCest::demoFlagMarksCommentsAsDemo`<br>· `DemoCest::demoPageRendersPipelineAndControls`<br>· `DemoCest::resetPurgesOnlyDemoCommentsAndAnnouncesIt`<br>· `DemoCest::resetRequiresPost` |
+| regression * | ✅ `DemoCest::demoFlagMarksCommentsAsDemo`<br>✅ `DemoCest::demoPageRendersPipelineAndControls`<br>✅ `DemoCest::resetPurgesOnlyDemoCommentsAndAnnouncesIt`<br>✅ `DemoCest::resetRequiresPost` |
 | e2e * | ✅ `DemoModeCest::demoPostsRealCommentsAndResetCleansUp` |
 
 ## CONFIG — Strict environment configuration and bootstrap (no silent defaults)
 
 | Suite | Guarding tests |
 |---|---|
-| unit * | · `EnvTest::testBlankVariableCountsAsMissing`<br>· `EnvTest::testBoolParsesOnlyExplicitValues`<br>· `EnvTest::testBoolRejectsAmbiguousValue`<br>· `EnvTest::testIntRejectsNonNumeric`<br>· `EnvTest::testMissingVariableThrowsAndNamesIt`<br>· `EnvTest::testReturnsSetValue` |
+| unit * | ✅ `EnvTest::testBlankVariableCountsAsMissing`<br>✅ `EnvTest::testBoolParsesOnlyExplicitValues`<br>✅ `EnvTest::testBoolRejectsAmbiguousValue`<br>✅ `EnvTest::testIntRejectsNonNumeric`<br>✅ `EnvTest::testMissingVariableThrowsAndNamesIt`<br>✅ `EnvTest::testReturnsSetValue` |
 
 \* = suite required for this step by `qa/steps.php`.
